@@ -1,0 +1,32 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profiles",
+      "description": "User accounts, balances, and stats",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "balance": { "type": "number" },
+        "favorites": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "balance"]
+    },
+    "game_logs": {
+      "title": "Game Activity Logs",
+      "description": "Records of played games and win/loss results",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "gameId": { "type": "string" },
+        "gameName": { "type": "string" },
+        "betAmount": { "type": "number" },
+        "payout": { "type": "number" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "gameId", "timestamp"]
+    }
+  }
+}

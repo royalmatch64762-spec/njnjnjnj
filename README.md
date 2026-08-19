@@ -1,11 +1,37 @@
-<div align="center">
+# PK96 Gaming Platform & Lobby
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A complete, mobile-optimized casino lobby and provably fair crash/arcade gaming suite with real-time balance synchronization, Firebase Firestore persistence, and multi-game iframe support.
 
-  <h1>Built with AI Studio</h2>
+## Deploying to Vercel via GitHub
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+This project is configured to work out-of-the-box when pushed to GitHub and deployed to Vercel.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### Option 1: Automatic GitHub -> Vercel Deployment (Recommended)
+1. Push this repository to your **GitHub** account.
+2. Go to [Vercel Dashboard](https://vercel.com/new).
+3. Import your GitHub repository.
+4. Keep the default settings:
+   - **Framework Preset**: Other
+   - **Root Directory**: `./`
+   - **Build Command**: `npm run build` (or leave default)
+   - **Output Directory**: Leave empty
+5. Click **Deploy**.
 
-</div>
+Vercel will automatically read `vercel.json` and serve all static games, assets, rewrite rules, and iframe communication headers.
+
+### Option 2: Running Locally or with Node.js
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Build / synchronize game aliases:
+   ```bash
+   npm run build
+   ```
+3. Start the dev server:
+   ```bash
+   npm start
+   # or
+   npm run dev
+   ```
+4. Open `http://localhost:3000` in your browser.

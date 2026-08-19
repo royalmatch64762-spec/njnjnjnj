@@ -1,0 +1,8 @@
+{
+  "name": "Pk96 Game Lobby",
+  "description": "Premium Casino & Arcade Game Suite featuring Desert Axe, Aviator, Neon Spins, Glass Roulette, and more.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

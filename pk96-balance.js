@@ -247,8 +247,8 @@
         if (loggedStr) {
           const u = JSON.parse(loggedStr);
           if (u && (u.email || u.uid)) {
-            const val = Number(u.totalDeposit || u.totalDeposits || u.depositAmount);
-            if (!isNaN(val)) return val;
+            const val = Number(u.totalDeposit || u.totalDeposited || u.totalDeposits || u.depositAmount);
+            if (!isNaN(val) && val >= 0) return val;
           }
         }
         const directDep = Number(origGetItem.call(localStorage, 'pk96_user_deposits'));
@@ -262,42 +262,120 @@
   }
 
   function checkAndUpdateReferralValidity(userUid, userEmail, referCode, totalDep, totalBet) {
-    const isValid = (totalDep >= 500 && totalBet >= 5000);
+    const depVal = Number(totalDep) || 0;
+    const betVal = Number(totalBet) || 0;
+    const isValid = (depVal >= 500 && betVal >= 5000);
+    const cleanRefCode = referCode ? String(referCode).trim() : '';
+
     try {
       const localRefs = JSON.parse(origGetItem.call(localStorage, 'pk96_referral_tracking') || '{}');
       let changed = false;
+
+      // Update in existing referral tracking buckets
       for (const code in localRefs) {
         if (Array.isArray(localRefs[code])) {
           localRefs[code].forEach(ref => {
-            if ((ref.uid && ref.uid === userUid) || (ref.email && ref.email === userEmail)) {
-              ref.totalDeposit = totalDep;
-              ref.totalBets = totalBet;
+            if ((ref.uid && userUid && ref.uid === userUid) || (ref.email && userEmail && ref.email.toLowerCase() === userEmail.toLowerCase())) {
+              ref.totalDeposit = depVal;
+              ref.totalBets = betVal;
               ref.isValid = isValid;
               changed = true;
             }
           });
         }
       }
+
+      // If user had a specific referCode, ensure tracked there
+      if (cleanRefCode) {
+        if (!localRefs[cleanRefCode]) localRefs[cleanRefCode] = [];
+        let existing = localRefs[cleanRefCode].find(r => (userUid && r.uid === userUid) || (userEmail && r.email && r.email.toLowerCase() === userEmail.toLowerCase()));
+        if (existing) {
+          existing.totalDeposit = depVal;
+          existing.totalBets = betVal;
+          existing.isValid = isValid;
+        } else {
+          localRefs[cleanRefCode].push({
+            uid: userUid || '',
+            email: userEmail || '',
+            totalDeposit: depVal,
+            totalBets: betVal,
+            isValid: isValid,
+            date: new Date().toISOString()
+          });
+        }
+        changed = true;
+      }
+
       if (changed) {
         origSetItem.call(localStorage, 'pk96_referral_tracking', JSON.stringify(localRefs));
-        if (typeof window.updateReferralUI === 'function') {
-          window.updateReferralUI();
+      }
+
+      // Also update in pk96_registered_users
+      if (userEmail) {
+        const regUsersStr = origGetItem.call(localStorage, 'pk96_registered_users');
+        if (regUsersStr) {
+          const regUsers = JSON.parse(regUsersStr);
+          const cleanEmail = userEmail.toLowerCase().trim();
+          const emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, '_');
+          if (regUsers[cleanEmail]) {
+            regUsers[cleanEmail].totalDeposit = depVal;
+            regUsers[cleanEmail].totalDeposited = depVal;
+            regUsers[cleanEmail].totalBets = betVal;
+            regUsers[cleanEmail].turnover = betVal;
+            regUsers[cleanEmail].isValid = isValid;
+          }
+          if (regUsers[emailKey]) {
+            regUsers[emailKey].totalDeposit = depVal;
+            regUsers[emailKey].totalDeposited = depVal;
+            regUsers[emailKey].totalBets = betVal;
+            regUsers[emailKey].turnover = betVal;
+            regUsers[emailKey].isValid = isValid;
+          }
+          origSetItem.call(localStorage, 'pk96_registered_users', JSON.stringify(regUsers));
         }
+      }
+
+      if (typeof window.updateReferralUI === 'function') {
+        window.updateReferralUI();
+      }
+      if (typeof window.generateInviteRewards === 'function') {
+        window.generateInviteRewards();
       }
     } catch(e) {}
 
     // Sync to Firestore
     try {
-      const dbObj = window.db || window.firebaseDb;
-      const docFn = window.doc || (window.firebaseFirestore && window.firebaseFirestore.doc);
-      const setDocFn = window.setDoc || (window.firebaseFirestore && window.firebaseFirestore.setDoc);
+      const dbObj = window.db || window.firebaseDb || (isAccessibleWindow(window.parent) && (window.parent.db || window.parent.firebaseDb));
+      const docFn = window.doc || (window.firebaseFirestore && window.firebaseFirestore.doc) || (isAccessibleWindow(window.parent) && window.parent.firebaseFirestore && window.parent.firebaseFirestore.doc);
+      const setDocFn = window.setDoc || (window.firebaseFirestore && window.firebaseFirestore.setDoc) || (isAccessibleWindow(window.parent) && window.parent.firebaseFirestore && window.parent.firebaseFirestore.setDoc);
+
       if (dbObj && docFn && setDocFn && userUid) {
-        setDocFn(docFn(dbObj, "referrals", userUid), {
-          totalDeposit: totalDep,
-          totalBets: totalBet,
+        const nowIso = new Date().toISOString();
+        const payload = {
+          referredUid: userUid,
+          referredEmail: userEmail || '',
+          referCode: cleanRefCode,
+          totalDeposit: depVal,
+          totalDeposited: depVal,
+          totalBets: betVal,
+          turnover: betVal,
           isValid: isValid,
-          lastUpdated: new Date().toISOString()
-        }, { merge: true }).catch(() => {});
+          lastUpdated: nowIso
+        };
+
+        setDocFn(docFn(dbObj, "referrals", userUid), payload, { merge: true }).catch(() => {});
+        setDocFn(docFn(dbObj, "users", userUid), { totalDeposit: depVal, totalDeposited: depVal, totalBets: betVal, turnover: betVal, isValid: isValid }, { merge: true }).catch(() => {});
+
+        if (cleanRefCode) {
+          setDocFn(docFn(dbObj, "referral_stats", cleanRefCode, "referred_users", userUid), {
+            uid: userUid,
+            email: userEmail || '',
+            totalDeposit: depVal,
+            totalBets: betVal,
+            isValid: isValid,
+            lastUpdated: nowIso
+          }, { merge: true }).catch(() => {});
+        }
       }
     } catch(e) {}
   }
@@ -316,6 +394,8 @@
         const u = JSON.parse(loggedStr);
         if (u) {
           u.totalDeposit = newTotal;
+          u.totalDeposited = newTotal;
+          u.totalDeposits = newTotal;
           origSetItem.call(localStorage, 'pk96_logged_user', JSON.stringify(u));
           if (u.email) {
             try {
@@ -324,10 +404,14 @@
                 const regUsers = JSON.parse(regUsersStr);
                 if (regUsers[u.email]) {
                   regUsers[u.email].totalDeposit = newTotal;
+                  regUsers[u.email].totalDeposited = newTotal;
+                  regUsers[u.email].totalDeposits = newTotal;
                 }
                 const emailKey = u.email.replace(/[^a-zA-Z0-9]/g, '_');
                 if (regUsers[emailKey]) {
                   regUsers[emailKey].totalDeposit = newTotal;
+                  regUsers[emailKey].totalDeposited = newTotal;
+                  regUsers[emailKey].totalDeposits = newTotal;
                 }
                 origSetItem.call(localStorage, 'pk96_registered_users', JSON.stringify(regUsers));
               }
@@ -341,6 +425,8 @@
               if (dbObj && docFn && setDocFn) {
                 const fsPayload = {
                   totalDeposit: newTotal,
+                  totalDeposited: newTotal,
+                  totalDeposits: newTotal,
                   balance: typeof u.balance === 'number' ? u.balance : getPK96Balance()
                 };
                 setDocFn(docFn(dbObj, "users", u.uid), fsPayload, { merge: true }).catch(() => {});
@@ -509,6 +595,40 @@
     return newTotal;
   }
 
+  let isSyncingToFirestore = false;
+  let firestoreSyncTimeout = null;
+
+  function syncBalanceToFirestore(u, validBal) {
+    if (!u || !u.uid) return;
+    if (firestoreSyncTimeout) clearTimeout(firestoreSyncTimeout);
+    firestoreSyncTimeout = setTimeout(() => {
+      try {
+        const dbObj = window.db || window.firebaseDb || (isAccessibleWindow(window.parent) && (window.parent.db || window.parent.firebaseDb));
+        const docFn = window.doc || (window.firebaseFirestore && window.firebaseFirestore.doc) || (isAccessibleWindow(window.parent) && window.parent.firebaseFirestore && window.parent.firebaseFirestore.doc);
+        const setDocFn = window.setDoc || (window.firebaseFirestore && window.firebaseFirestore.setDoc) || (isAccessibleWindow(window.parent) && window.parent.firebaseFirestore && window.parent.firebaseFirestore.setDoc);
+        if (dbObj && docFn && setDocFn) {
+          const totalDepVal = Number(u.totalDeposit || u.totalDeposited || u.totalDeposits || getPK96TotalDeposit()) || 0;
+          const totalBetVal = Number(u.totalBets || u.turnover || getPK96TotalBet()) || 0;
+          const isValidReferral = (totalDepVal >= 500 && totalBetVal >= 5000);
+          const fsPayload = {
+            balance: validBal,
+            totalDeposit: totalDepVal,
+            totalDeposited: totalDepVal,
+            totalBets: totalBetVal,
+            turnover: totalBetVal,
+            isValid: isValidReferral,
+            avatar: u.avatar || '',
+            username: u.username || u.displayName || '',
+            displayName: u.displayName || u.username || '',
+            referCode: u.referCode || '',
+            referredBy: u.referredBy || ''
+          };
+          setDocFn(docFn(dbObj, "users", u.uid), fsPayload, { merge: true }).catch(() => {});
+        }
+      } catch(err) {}
+    }, 150);
+  }
+
   function setPK96Balance(newBal, isBet = true) {
     const num = Number(newBal);
     if (isNaN(num)) return getPK96Balance();
@@ -556,30 +676,8 @@
             }
           } catch(err) {}
         }
-        if (u.uid) {
-          try {
-            const dbObj = window.db || window.firebaseDb || (isAccessibleWindow(window.parent) && (window.parent.db || window.parent.firebaseDb));
-            const docFn = window.doc || (window.firebaseFirestore && window.firebaseFirestore.doc) || (isAccessibleWindow(window.parent) && window.parent.firebaseFirestore && window.parent.firebaseFirestore.doc);
-            const setDocFn = window.setDoc || (window.firebaseFirestore && window.firebaseFirestore.setDoc) || (isAccessibleWindow(window.parent) && window.parent.firebaseFirestore && window.parent.firebaseFirestore.setDoc);
-            if (dbObj && docFn && setDocFn) {
-              const fsPayload = {
-                balance: validBal,
-                totalBets: Number(u.totalBets || u.turnover) || 0,
-                turnover: Number(u.totalBets || u.turnover) || 0,
-                avatar: u.avatar || '',
-                username: u.username || u.displayName || '',
-                displayName: u.displayName || u.username || '',
-                referCode: u.referCode || '',
-                referredBy: u.referredBy || ''
-              };
-              setDocFn(docFn(dbObj, "users", u.uid), fsPayload, { merge: true }).catch(() => {});
-              if (u.email) {
-                const emailKey = u.email.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, '_');
-                setDocFn(docFn(dbObj, "users", "email_" + emailKey), fsPayload, { merge: true }).catch(() => {});
-                setDocFn(docFn(dbObj, "users", u.email.toLowerCase().trim()), fsPayload, { merge: true }).catch(() => {});
-              }
-            }
-          } catch(err) {}
+        if (u.uid && isBet) {
+          syncBalanceToFirestore(u, validBal);
         }
       } else {
         origSetItem.call(localStorage, 'pk96_guest_balance', validBal.toString());
@@ -1060,26 +1158,6 @@
                   }
                 } catch(e) {}
               }
-              if (u.uid) {
-                try {
-                  const dbObj = window.db || window.firebaseDb;
-                  const docFn = window.doc || (window.firebaseFirestore && window.firebaseFirestore.doc);
-                  const setDocFn = window.setDoc || (window.firebaseFirestore && window.firebaseFirestore.setDoc);
-                  if (dbObj && docFn && setDocFn) {
-                    const fsPayload = {
-                      balance: validBal,
-                      totalBets: Number(u.totalBets || u.turnover) || 0,
-                      turnover: Number(u.totalBets || u.turnover) || 0
-                    };
-                    setDocFn(docFn(dbObj, "users", u.uid), fsPayload, { merge: true }).catch(() => {});
-                    if (u.email) {
-                      const emailKey = u.email.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, '_');
-                      setDocFn(docFn(dbObj, "users", "email_" + emailKey), fsPayload, { merge: true }).catch(() => {});
-                      setDocFn(docFn(dbObj, "users", u.email.toLowerCase().trim()), fsPayload, { merge: true }).catch(() => {});
-                    }
-                  }
-                } catch(e) {}
-              }
             }
           }
           origSetItem.call(localStorage, 'pk96_balance', validBal.toString());
@@ -1132,7 +1210,7 @@
           origSetItem.call(localStorage, 'pk96_user_deposits', e.data.totalDeposits.toString());
         } catch(err) {}
       }
-    } else if (e.data.type === 'PK96_BALANCE_UPDATE' || e.data.type === 'PK96_SILENT_REFRESH') {
+    } else if (e.data.type === 'PK96_BALANCE_UPDATE') {
       if (e.data.user) {
         try {
           origSetItem.call(localStorage, 'pk96_logged_user', JSON.stringify(e.data.user));
@@ -1166,7 +1244,7 @@
     try {
       const bc = new BroadcastChannel('pk96_balance_channel');
       bc.onmessage = function(e) {
-        if (e.data && (e.data.type === 'PK96_BALANCE_UPDATE' || e.data.type === 'PK96_SILENT_REFRESH')) {
+        if (e.data && e.data.type === 'PK96_BALANCE_UPDATE') {
           handleIncomingBalance(e.data.balance);
         }
       };
@@ -1257,88 +1335,6 @@
     updateDOMBalances(getPK96Balance());
     setupStandaloneNavigation();
   });
-
-  // DOM Balance watcher (500ms)
-  setInterval(function() {
-    const currentBal = getPK96Balance();
-    updateDOMBalances(currentBal);
-  }, 500);
-
-  // Silent 1-Second Global Background Refresh & Real-time Persistence Cycle
-  function performSilent1SecRefresh() {
-    try {
-      const currentBal = getPK96Balance();
-      const currentUser = getPK96User();
-      const currentBets = getPK96TotalBet();
-      const currentDeposits = getPK96TotalDeposit();
-
-      // 1. Silent DOM update (invisibly aligns all active DOM balance targets)
-      updateDOMBalances(currentBal);
-
-      // 2. Silent cross-frame sync with parent
-      if (window.parent && window.parent !== window) {
-        try {
-          window.parent.postMessage({
-            type: 'PK96_SILENT_REFRESH',
-            balance: currentBal,
-            user: currentUser,
-            totalBets: currentBets,
-            totalDeposits: currentDeposits
-          }, '*');
-        } catch(e) {}
-      }
-
-      // 3. Silent child iframe sync (if running in lobby)
-      const iframes = document.querySelectorAll('iframe');
-      iframes.forEach(f => {
-        try {
-          if (f.contentWindow) {
-            f.contentWindow.postMessage({
-              type: 'PK96_SILENT_REFRESH',
-              balance: currentBal,
-              user: currentUser,
-              totalBets: currentBets,
-              totalDeposits: currentDeposits
-            }, '*');
-          }
-        } catch(e) {}
-      });
-
-      // 4. Silent BroadcastChannel refresh
-      if (window.BroadcastChannel && window._pk96_bc) {
-        try {
-          window._pk96_bc.postMessage({
-            type: 'PK96_SILENT_REFRESH',
-            balance: currentBal,
-            user: currentUser,
-            totalBets: currentBets,
-            totalDeposits: currentDeposits
-          });
-        } catch(e) {}
-      }
-
-      // 5. Silent backend API balance check / sync (fire & forget, 100% invisible to user)
-      if (currentUser && currentUser.uid && !String(currentUser.uid).startsWith('guest_') && currentUser.uid !== 'guest') {
-        if (typeof fetch === 'function') {
-          fetch('/api/balance/sync', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              userId: currentUser.uid,
-              balance: currentBal,
-              action: 'silent_1s_refresh'
-            })
-          }).then(res => res.json()).then(data => {
-            if (data && typeof data.balance === 'number' && Math.abs(data.balance - currentBal) >= 0.01) {
-              handleIncomingBalance(data.balance);
-            }
-          }).catch(() => {});
-        }
-      }
-    } catch(e) {}
-  }
-
-  setInterval(performSilent1SecRefresh, 1000);
 
 })();
 

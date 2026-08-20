@@ -100,16 +100,14 @@ const gameAliasMap = {
 
 // Environment Detection Helper
 function getEnvironmentInfo() {
-  const isVercel = !!process.env.VERCEL || !!process.env.NOW_REGION;
-  const isProduction = process.env.NODE_ENV === 'production' || isVercel;
-  const isLocal = !isVercel && (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV);
+  const isProduction = process.env.NODE_ENV === 'production';
+  const isLocal = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV;
   const useEmulator = process.env.USE_FIREBASE_EMULATOR === 'true' || !!process.env.FIRESTORE_EMULATOR_HOST;
 
   return {
     environment: isProduction ? 'production' : 'development',
-    platform: isVercel ? 'vercel' : (isLocal ? 'localhost' : 'cloud_run'),
+    platform: isLocal ? 'localhost' : 'cloud_run',
     isLocal,
-    isVercel,
     isProduction,
     useEmulator,
     emulators: {
@@ -131,7 +129,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// App / Firebase Configuration (supports environment variables and Vercel production)
+// App / Firebase Configuration (supports environment variables and backend config)
 app.get('/api/config', (req, res) => {
   let fileConfig = {};
   try {
@@ -145,14 +143,14 @@ app.get('/api/config', (req, res) => {
 
   const envInfo = getEnvironmentInfo();
 
-  // Prefer environment variables (NEXT_PUBLIC_* and standard) over static files
+  // Prefer environment variables over static file defaults
   const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || process.env.FIREBASE_API_KEY || fileConfig.apiKey || "AIzaSyDUSi0mM3bYMEozFD3Ahh0vUZ5gBG1dNTU",
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || process.env.FIREBASE_AUTH_DOMAIN || fileConfig.authDomain || "flappy77777.firebaseapp.com",
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || process.env.FIREBASE_PROJECT_ID || fileConfig.projectId || "flappy77777",
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || process.env.FIREBASE_STORAGE_BUCKET || fileConfig.storageBucket || "flappy77777.firebasestorage.app",
-    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || process.env.FIREBASE_MESSAGING_SENDER_ID || fileConfig.messagingSenderId || "393994889085",
-    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || process.env.FIREBASE_APP_ID || fileConfig.appId || "1:393994889085:web:61132fe75fe3df840e4e14",
+    apiKey: process.env.FIREBASE_API_KEY || fileConfig.apiKey || "AIzaSyDUSi0mM3bYMEozFD3Ahh0vUZ5gBG1dNTU",
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN || fileConfig.authDomain || "flappy77777.firebaseapp.com",
+    projectId: process.env.FIREBASE_PROJECT_ID || fileConfig.projectId || "flappy77777",
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET || fileConfig.storageBucket || "flappy77777.firebasestorage.app",
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || fileConfig.messagingSenderId || "393994889085",
+    appId: process.env.FIREBASE_APP_ID || fileConfig.appId || "1:393994889085:web:61132fe75fe3df840e4e14",
     firestoreDatabaseId: process.env.FIRESTORE_DATABASE_ID || fileConfig.firestoreDatabaseId || "(default)"
   };
 

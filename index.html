@@ -4486,8 +4486,8 @@
                     <div class="contactus-box">
                         <h2 class="contact-us-title">📱 Contact us</h2>
                         <ul class="contact-us">
-                            <li class="socialItem"><img src="https://www.zc777a.com/siteadmin/upload/img/1990842924529610754.avif" alt="Pk96.com | Official Channel ®"></li>
-                            <li class="socialItem"><img src="https://www.zc777a.com/siteadmin/upload/img/telegram.avif" alt="Telegram"></li>
+                            <li class="socialItem" id="homeWhatsAppItem" title="Pk96 Official WhatsApp Channel" onclick="window.openExternalUrl('https://whatsapp.com/channel/0029Vb8Sows3wtb5Gt5LEO3K', 'WhatsApp Channel')" style="cursor: pointer;"><img src="https://www.zc777a.com/siteadmin/upload/img/1990842924529610754.avif" alt="WhatsApp Channel"></li>
+                            <li class="socialItem" id="homeTelegramItem" title="Pk96 Official Telegram Channel" onclick="window.openExternalUrl('https://t.me/+bxIx2AalpIhjMjhk', 'Telegram Channel')" style="cursor: pointer;"><img src="https://www.zc777a.com/siteadmin/upload/img/telegram.avif" alt="Telegram Channel"></li>
                         </ul>
                     </div>
 
@@ -4745,40 +4745,40 @@
                         </div>
 
                         <div class="_other-customers_ku461_52">
-                            <div class="_other-item_ku461_72">
-                                <img class="_icon_ku461_85" src="https://www.zc777b.com/siteadmin/upload/img/1990842924529610754.avif" alt=".">
+                            <div class="_other-item_ku461_72" id="supportWhatsAppItem" style="cursor: pointer;" onclick="window.openExternalUrl('https://whatsapp.com/channel/0029Vb8Sows3wtb5Gt5LEO3K', 'WhatsApp Channel')">
+                                <img class="_icon_ku461_85" src="https://www.zc777b.com/siteadmin/upload/img/1990842924529610754.avif" alt="WhatsApp Channel">
                                 <div class="_wrapper-customer-name_ku461_100">
                                     <div class="_customer-name_ku461_105">
                                         <span class="_lable_ku461_122">Nickname:</span>
                                         <span class="_name_ku461_115">Pk96.com | Official Channel ®</span>
                                     </div>
                                     <div class="_customer-number_ku461_128">
-                                        <span class="_account_ku461_140">Pk96.com | Official Channel ®</span>
+                                        <span class="_account_ku461_140">Pk96 WhatsApp Channel</span>
                                     </div>
                                     <div class="_online-time_ku461_147">
                                         <span class="_lable_ku461_122">Online time:</span>
                                         <span>00:00 - 23:59</span>
                                     </div>
                                 </div>
-                                <button type="button" class="ui-button">Contact Now</button>
+                                <button type="button" class="ui-button" id="supportWhatsAppBtn" onclick="event.stopPropagation(); window.openExternalUrl('https://whatsapp.com/channel/0029Vb8Sows3wtb5Gt5LEO3K', 'WhatsApp Channel')">Contact Now</button>
                             </div>
                             <!-- Telegram replaced Facebook -->
-                            <div class="_other-item_ku461_72">
-                                <img class="_icon_ku461_85" src="https://www.zc777a.com/siteadmin/upload/img/telegram.avif" alt="Telegram">
+                            <div class="_other-item_ku461_72" id="supportTelegramItem" style="cursor: pointer;" onclick="window.openExternalUrl('https://t.me/+bxIx2AalpIhjMjhk', 'Telegram Channel')">
+                                <img class="_icon_ku461_85" src="https://www.zc777a.com/siteadmin/upload/img/telegram.avif" alt="Telegram Support">
                                 <div class="_wrapper-customer-name_ku461_100">
                                     <div class="_customer-name_ku461_105">
                                         <span class="_lable_ku461_122">Nickname:</span>
                                         <span class="_name_ku461_115">Telegram Support</span>
                                     </div>
                                     <div class="_customer-number_ku461_128">
-                                        <span class="_account_ku461_140">@Pk96_support</span>
+                                        <span class="_account_ku461_140">Pk96 Telegram Channel</span>
                                     </div>
                                     <div class="_online-time_ku461_147">
                                         <span class="_lable_ku461_122">Online time:</span>
                                         <span>00:00 - 23:59</span>
                                     </div>
                                 </div>
-                                <button type="button" class="ui-button">Contact Now</button>
+                                <button type="button" class="ui-button" id="supportTelegramBtn" onclick="event.stopPropagation(); window.openExternalUrl('https://t.me/+bxIx2AalpIhjMjhk', 'Telegram Channel')">Contact Now</button>
                             </div>
                         </div>
                     </div>
@@ -4850,7 +4850,7 @@
                     <p class="_title_15nir_79" id="answerSheetTitle">How to deposit?</p>
                 </header>
                 <div class="_question-answer_15nir_97" id="answerSheetContent">
-                    Scan the QR code and send payment to that account and write down the number which you are going you use to send amount and write the same number because its our policy.
+                    After selecting your amount, enter your number in box and enter the same number you are going to send the deposit amount and after entering the number click on confirm deposit button and then copy the number and open any wallet and send the deposit amount to that <span style="color: #ff3b30; font-weight: 600;">Opay</span> wallet after a successful transaction you will receive your amount in the game.
                 </div>
             </div>
         </div>
@@ -5535,17 +5535,6 @@
 
             <div id="loginErrorMsg" style="color: #ff4d4f; font-size: 12px; margin-bottom: 8px; display: none; text-align: center;"></div>
             <button type="submit" class="modal-btn" id="loginSubmitBtn">Login</button>
-
-            <div class="or-divider" style="display: flex; align-items: center; margin: 12px 0; color: #888; font-size: 11px;">
-                <span style="flex: 1; border-bottom: 1px solid #333;"></span>
-                <span style="padding: 0 10px; font-weight: 600; text-transform: uppercase;">Or Login With</span>
-                <span style="flex: 1; border-bottom: 1px solid #333;"></span>
-            </div>
-
-            <button type="button" class="google-auth-btn" id="googleLoginBtn" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px; border-radius: 12px; background: #ffffff; color: #1a1a1a; font-weight: 700; font-size: 13px; border: none; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.2); margin-bottom: 8px;">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.15C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.61H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.39l3.99-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.61l3.99 3.15c.95-2.85 3.6-4.96 6.72-4.96z"/></svg>
-                <span>Sign in with Google</span>
-            </button>
         </form>
 
         <div class="modal-footer-actions">
@@ -5645,17 +5634,6 @@
 
             <div id="registerErrorMsg" style="color: #ff4d4f; font-size: 12px; margin-bottom: 8px; display: none; text-align: center;"></div>
             <button type="submit" class="modal-btn" id="registerSubmitBtn">Register</button>
-
-            <div class="or-divider" style="display: flex; align-items: center; margin: 12px 0; color: #888; font-size: 11px;">
-                <span style="flex: 1; border-bottom: 1px solid #333;"></span>
-                <span style="padding: 0 10px; font-weight: 600; text-transform: uppercase;">Or Register With</span>
-                <span style="flex: 1; border-bottom: 1px solid #333;"></span>
-            </div>
-
-            <button type="button" class="google-auth-btn" id="googleRegisterBtn" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px; border-radius: 12px; background: #ffffff; color: #1a1a1a; font-weight: 700; font-size: 13px; border: none; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.2); margin-bottom: 8px;">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.15C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.61H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.39l3.99-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.61l3.99 3.15c.95-2.85 3.6-4.96 6.72-4.96z"/></svg>
-                <span>Register with Google</span>
-            </button>
         </form>
 
         <div class="modal-footer-actions">
@@ -5664,43 +5642,6 @@
                 Exit
             </button>
         </div>
-    </div>
-</div>
-
-<!-- ===== GOOGLE ACCOUNT SELECTOR / REGISTRATION MODAL ===== -->
-<div class="modal-overlay" id="googleAccountModal">
-    <div class="modal-container" style="max-width: 360px; background: #181818; border: 1.5px solid #333; border-radius: 20px; padding: 20px; box-shadow: 0 12px 48px rgba(0,0,0,0.9);">
-        <button class="modal-close-btn" id="googleAccountCloseBtn" onclick="closeModal('googleAccountModal')">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="#ffffff"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-        </button>
-
-        <div style="text-align: center; margin-bottom: 16px;">
-            <div style="display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; background: #ffffff; border-radius: 50%; margin-bottom: 10px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);">
-                <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.15C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.61H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.39l3.99-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.61l3.99 3.15c.95-2.85 3.6-4.96 6.72-4.96z"/></svg>
-            </div>
-            <h3 style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px;">Google Account Verification</h3>
-            <p style="font-size: 11px; color: #aaa; line-height: 1.4;">Enter or confirm your device's Google Gmail address to sign in / register</p>
-        </div>
-
-        <form id="googleAccountForm">
-            <div style="margin-bottom: 12px; text-align: left;">
-                <label style="display: block; font-size: 11px; color: #ccc; margin-bottom: 4px; font-weight: 600;">Your Device Google Email</label>
-                <div style="position: relative;">
-                    <input type="email" id="googleAccountEmailInput" placeholder="your.name@gmail.com" style="width: 100%; padding: 10px 12px; border-radius: 10px; background: #222; border: 1.5px solid #444; color: #fff; font-size: 13px; font-weight: 600;" required autocomplete="email">
-                </div>
-            </div>
-            <div style="margin-bottom: 16px; text-align: left;">
-                <label style="display: block; font-size: 11px; color: #ccc; margin-bottom: 4px; font-weight: 600;">Account Display Name</label>
-                <input type="text" id="googleAccountNameInput" placeholder="Your Display Name" style="width: 100%; padding: 10px 12px; border-radius: 10px; background: #222; border: 1.5px solid #444; color: #fff; font-size: 13px; font-weight: 600;" required>
-            </div>
-
-            <div id="googleAccountErrorMsg" style="color: #ff4d4f; font-size: 12px; margin-bottom: 10px; display: none; text-align: center;"></div>
-
-            <button type="submit" id="confirmGoogleAuthBtn" style="width: 100%; padding: 12px; border-radius: 12px; background: linear-gradient(135deg, #4285F4, #34A853); color: #fff; font-weight: 700; font-size: 14px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(66,133,244,0.4); display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.2s;">
-                <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#ffffff" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/></svg>
-                <span>Continue with Google</span>
-            </button>
-        </form>
     </div>
 </div>
 
@@ -6146,7 +6087,7 @@
         const answerSheetClose = document.getElementById('answerSheetClose');
 
         const faqAnswers = {
-            q1: 'Scan the QR code and send payment to that account and write down the number which you are going you use to send amount and write the same number because its our policy.',
+            q1: 'After selecting your amount, enter your number in box and enter the same number you are going to send the deposit amount and after entering the number click on confirm deposit button and then copy the number and open any wallet and send the deposit amount to that <span style="color: #ff3b30; font-weight: 600;">Opay</span> wallet after a successful transaction you will receive your amount in the game.',
             q2: 'If a user register from you referral link and bet 5000 it will be count as a valid user and you will get an amount of 500-5000.',
             q3: 'No this game does not support any other studio games because this game has its own studio and only support its own studio games.',
             q4: 'Yes this game support service is available 24/7 but if the servers are busy you can face some delay\'s so in this situation wait and try again after some time.'
@@ -6213,79 +6154,6 @@
         window.initCustomRecaptcha = initCustomRecaptcha;
         document.addEventListener('DOMContentLoaded', initCustomRecaptcha);
         setTimeout(initCustomRecaptcha, 500);
-
-        // --- GOOGLE AUTH CLICK HANDLER & MODAL FORM ---
-        document.querySelectorAll('#googleLoginBtn, #googleRegisterBtn').forEach(function(btn) {
-            btn.addEventListener('click', async function() {
-                const origText = btn.innerHTML;
-                try {
-                    btn.disabled = true;
-                    btn.style.opacity = '0.7';
-                    showLobbyToast('Connecting to Google Sign-In...');
-                    if (window.loginUserWithGoogle) {
-                        await window.loginUserWithGoogle();
-                    } else if (window.openGoogleAccountModal) {
-                        window.openGoogleAccountModal("", "Please enter your device's Google Gmail address:");
-                    } else {
-                        showLobbyToast('Authentication service is initializing, please try again.', true);
-                    }
-                } catch (err) {
-                    console.warn("Google Auth notice:", err);
-                    if (window.openGoogleAccountModal) {
-                        window.openGoogleAccountModal("", "Please enter your device's Google Gmail address:");
-                    } else {
-                        const errMsg = err.message || "Google Sign-In failed.";
-                        showLobbyToast('⚠️ ' + errMsg, true);
-                    }
-                } finally {
-                    btn.disabled = false;
-                    btn.style.opacity = '1';
-                    btn.innerHTML = origText;
-                }
-            });
-        });
-
-        // Google Account Form Submit Listener
-        const googleForm = document.getElementById('googleAccountForm');
-        if (googleForm) {
-            googleForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                const emailInput = document.getElementById('googleAccountEmailInput');
-                const nameInput = document.getElementById('googleAccountNameInput');
-                const errorEl = document.getElementById('googleAccountErrorMsg');
-                const confirmBtn = document.getElementById('confirmGoogleAuthBtn');
-
-                const googleEmail = emailInput ? emailInput.value.trim().toLowerCase() : '';
-                const googleName = nameInput ? nameInput.value.trim() : '';
-
-                if (!googleEmail || !googleEmail.includes('@')) {
-                    if (errorEl) { errorEl.textContent = 'Please enter a valid Google Gmail address.'; errorEl.style.display = 'block'; }
-                    return;
-                }
-
-                try {
-                    if (confirmBtn) { confirmBtn.disabled = true; confirmBtn.textContent = 'Registering with Google...'; }
-                    if (errorEl) errorEl.style.display = 'none';
-
-                    if (window.completeGoogleRegistrationWithEmail) {
-                        await window.completeGoogleRegistrationWithEmail(googleEmail, googleName);
-                        closeModal('googleAccountModal');
-                        closeModal('loginModal');
-                        closeModal('registerModal');
-                    } else {
-                        throw new Error("Google registration handler not ready. Please try again.");
-                    }
-                } catch (err) {
-                    console.error("Google account registration error:", err);
-                    if (errorEl) { errorEl.textContent = err.message || 'Google Auth failed.'; errorEl.style.display = 'block'; }
-                } finally {
-                    if (confirmBtn) {
-                        confirmBtn.disabled = false;
-                        confirmBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24"><path fill="#ffffff" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/></svg><span>Continue with Google</span>';
-                    }
-                }
-            });
-        }
 
         // --- MODAL HELPERS ---
         function checkIsUserLoggedIn() {
@@ -6825,54 +6693,112 @@
         function getReferralValidCount() {
             let validCount = 0;
             const code = (typeof getUserInviteCode === 'function') ? getUserInviteCode() : '';
+            if (!code || code === 'Loading' || code === 'PK96-GUEST') {
+                return Number(localStorage.getItem('pk96_cached_referral_valid') || 0);
+            }
+
             let loggedUser = null;
             try {
                 const loggedStr = localStorage.getItem('pk96_logged_user');
                 if (loggedStr) loggedUser = JSON.parse(loggedStr);
             } catch(e) {}
 
+            const uniqueReferredUsers = new Map();
+
+            // 1. Scan pk96_referral_tracking from localStorage
             try {
                 const localRefs = JSON.parse(localStorage.getItem('pk96_referral_tracking') || '{}');
                 const checkKeys = [code];
                 if (loggedUser) {
-                    if (loggedUser.email) checkKeys.push(loggedUser.email.toLowerCase().trim());
-                    if (loggedUser.uid) checkKeys.push(loggedUser.uid);
-                    if (loggedUser.referCode) checkKeys.push(loggedUser.referCode);
+                    if (loggedUser.referCode) checkKeys.push(String(loggedUser.referCode).trim());
+                    if (loggedUser.email) checkKeys.push(String(loggedUser.email).toLowerCase().trim());
+                    if (loggedUser.uid) checkKeys.push(String(loggedUser.uid).trim());
                 }
                 checkKeys.forEach(k => {
                     if (k && localRefs[k] && Array.isArray(localRefs[k])) {
                         localRefs[k].forEach(sub => {
-                            if (sub && (sub.isValid || (Number(sub.totalDeposit || 0) >= 500 && Number(sub.totalBets || 0) >= 5000))) {
-                                validCount++;
+                            if (!sub) return;
+                            const uKey = (sub.uid || sub.email || '').toLowerCase().trim();
+                            if (!uKey) return;
+                            const dep = Math.max(
+                                Number(sub.totalDeposit || 0),
+                                Number(sub.totalDeposited || 0),
+                                Number(sub.totalDeposits || 0),
+                                Number(sub.depositAmount || 0)
+                            );
+                            const bets = Math.max(
+                                Number(sub.totalBets || 0),
+                                Number(sub.turnover || 0),
+                                Number(sub.bets || 0)
+                            );
+                            const isValid = (sub.isValid === true) || (dep >= 500 && bets >= 5000);
+                            if (!uniqueReferredUsers.has(uKey) || isValid) {
+                                uniqueReferredUsers.set(uKey, { dep, bets, isValid });
                             }
                         });
                     }
                 });
             } catch(e) {}
 
-            // Also check registered users
+            // 2. Scan pk96_registered_users from localStorage
             try {
                 if (typeof getLocalRegisteredUsers === 'function') {
                     const regUsers = getLocalRegisteredUsers();
-                    let matchValid = 0;
                     for (const k in regUsers) {
                         const u = regUsers[k];
                         if (u && u.referredBy) {
                             const ref = String(u.referredBy).trim();
-                            if (ref === code || (loggedUser && (ref === loggedUser.email || ref === loggedUser.uid || ref === loggedUser.referCode))) {
-                                const dep = Number(u.totalDeposit || u.totalDeposits || 0);
-                                const bets = Number(u.totalBets || u.turnover || 0);
-                                if (u.isValid || (dep >= 500 && bets >= 5000)) {
-                                    matchValid++;
+                            const matches = (ref === code) || (loggedUser && (
+                                ref === String(loggedUser.referCode).trim() ||
+                                ref === String(loggedUser.email || '').toLowerCase().trim() ||
+                                ref === String(loggedUser.uid || '').trim()
+                            ));
+                            if (matches) {
+                                const uKey = (u.uid || u.email || k).toLowerCase().trim();
+                                const dep = Math.max(
+                                    Number(u.totalDeposit || 0),
+                                    Number(u.totalDeposited || 0),
+                                    Number(u.totalDeposits || 0),
+                                    Number(u.depositAmount || 0)
+                                );
+                                const bets = Math.max(
+                                    Number(u.totalBets || 0),
+                                    Number(u.turnover || 0),
+                                    Number(u.bets || 0)
+                                );
+                                const isValid = (u.isValid === true) || (dep >= 500 && bets >= 5000);
+                                if (!uniqueReferredUsers.has(uKey) || isValid) {
+                                    uniqueReferredUsers.set(uKey, { dep, bets, isValid });
                                 }
                             }
                         }
                     }
-                    validCount = Math.max(validCount, matchValid);
                 }
             } catch(e) {}
 
-            return validCount;
+            // 3. Scan cached Firestore referrals map if present
+            try {
+                const fsCached = JSON.parse(localStorage.getItem('pk96_firestore_referrals_cache') || '{}');
+                for (const uKey in fsCached) {
+                    const u = fsCached[uKey];
+                    if (u) {
+                        const dep = Math.max(Number(u.totalDeposit || 0), Number(u.totalDeposited || 0), Number(u.totalDeposits || 0));
+                        const bets = Math.max(Number(u.totalBets || 0), Number(u.turnover || 0));
+                        const isValid = (u.isValid === true) || (dep >= 500 && bets >= 5000);
+                        if (!uniqueReferredUsers.has(uKey) || isValid) {
+                            uniqueReferredUsers.set(uKey, { dep, bets, isValid });
+                        }
+                    }
+                }
+            } catch(e) {}
+
+            // Count valid referrals from unique users
+            uniqueReferredUsers.forEach(u => {
+                if (u.isValid) validCount++;
+            });
+
+            const cachedValid = Number(localStorage.getItem('pk96_cached_referral_valid') || 0);
+            return Math.max(validCount, cachedValid);
         }
 
         // Random bonus generator: 500-1300, 5% chances > 900
@@ -6906,11 +6832,11 @@
             const bonus = getRandomChestBonusAmount();
             saveUserClaimedChest(index, bonus);
 
-            // Credit bonus to balance
+            // Credit bonus directly to balance (isBet = false)
             let currentBal = (window.PK96 && typeof window.PK96.getBalance === 'function') ? window.PK96.getBalance() : (isNaN(Number(localStorage.getItem('pk96_balance'))) ? 0 : Number(localStorage.getItem('pk96_balance')));
             let newBal = currentBal + bonus;
             if (window.PK96 && window.PK96.setBalance) {
-                window.PK96.setBalance(newBal);
+                window.PK96.setBalance(newBal, false);
             } else {
                 localStorage.setItem('pk96_balance', newBal.toString());
                 if (window.updateDOMBalances) window.updateDOMBalances(newBal);
@@ -6929,6 +6855,8 @@
                     modal.classList.add('active');
                 });
             }
+
+            showLobbyToast(`🎉 Congratulations! You received Rs ${bonus.toFixed(2)} referral chest bonus!`);
 
             // Re-render chest list and stats
             generateInviteRewards();
@@ -7551,6 +7479,7 @@
                     if (userObj.username || userObj.displayName) url.searchParams.set('pk96_user', userObj.username || userObj.displayName);
                     if (userObj.totalBets || userObj.turnover) url.searchParams.set('pk96_bets', (userObj.totalBets || userObj.turnover).toString());
                     if (userObj.vipLevel) url.searchParams.set('pk96_vip', userObj.vipLevel.toString());
+                    if (userObj.referCode) url.searchParams.set('pk96_refer', userObj.referCode.toString());
                 }
                 url.searchParams.set('t', Date.now().toString());
                 gameIframe.src = url.href;
@@ -8384,7 +8313,7 @@
         // --- Answer Sheet Functions ---
         function openAnswerSheet(questionKey) {
             answerSheetTitle.textContent = faqTitles[questionKey] || 'FAQ Answer';
-            answerSheetContent.textContent = faqAnswers[questionKey] || 'Answer not found.';
+            answerSheetContent.innerHTML = faqAnswers[questionKey] || 'Answer not found.';
             answerSheetOverlay.style.display = 'flex';
             answerSheetOverlay.classList.add('active');
             setTimeout(function() {
@@ -8449,7 +8378,7 @@
 <script type="module">
   import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, connectAuthEmulator, signInAnonymously, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, signInWithCredential } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { getFirestore, connectFirestoreEmulator, setLogLevel, doc, setDoc, getDoc, collection, addDoc, serverTimestamp, arrayUnion, arrayRemove, query, where, getDocs, increment } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { getFirestore, connectFirestoreEmulator, setLogLevel, doc, setDoc, getDoc, collection, addDoc, serverTimestamp, arrayUnion, arrayRemove, query, where, getDocs, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
   // Suppress harmless offline/retry connection notices from internal WebChannel
   try {
@@ -8458,19 +8387,17 @@
     }
   } catch(e) {}
 
-  // 1. Environment Detection System (Localhost vs Vercel / Production)
+  // 1. Environment Detection System (Localhost vs Production)
   const isLocalHost = typeof window !== 'undefined' && (
     window.location.hostname === 'localhost' || 
     window.location.hostname === '127.0.0.1' || 
     window.location.hostname.startsWith('192.168.') ||
     window.location.hostname === '[::1]'
   );
-  const isVercel = typeof window !== 'undefined' && window.location.hostname.endsWith('.vercel.app');
-  const isProduction = !isLocalHost || isVercel;
+  const isProduction = !isLocalHost;
 
   window.ENV_INFO = {
     isLocal: isLocalHost,
-    isVercel: isVercel,
     isProduction: isProduction,
     hostname: window.location.hostname
   };
@@ -8581,7 +8508,7 @@
   window.firebaseApp = app;
   window.firebaseAuth = auth;
   window.firebaseDb = db;
-  window.firebaseFirestore = { doc, setDoc, getDoc, collection, addDoc, serverTimestamp, arrayUnion, arrayRemove, query, where, getDocs, increment };
+  window.firebaseFirestore = { doc, setDoc, getDoc, collection, addDoc, serverTimestamp, arrayUnion, arrayRemove, query, where, getDocs, increment, onSnapshot };
   window.db = db;
   window.auth = auth;
   window.doc = doc;
@@ -8596,6 +8523,7 @@
   window.where = where;
   window.getDocs = getDocs;
   window.increment = increment;
+  window.onSnapshot = onSnapshot;
   window.GoogleAuthProvider = GoogleAuthProvider;
   window.signInWithPopup = signInWithPopup;
 
@@ -8636,10 +8564,56 @@
     if (!email || !email.includes('@')) throw new Error("Please enter a valid Google Gmail address.");
     const cleanEmail = email.toLowerCase().trim();
     const googleDisplayName = name ? name.trim() : (cleanEmail.split('@')[0].charAt(0).toUpperCase() + cleanEmail.split('@')[0].slice(1));
-    const uid = providedUid || ("google_" + cleanEmail.replace(/[^a-zA-Z0-9]/g, '_'));
+    const emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, '_');
+    const hashNum = Math.abs(cleanEmail.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
+    const googleAuthSecretPass = "GAuth_Pk96_" + hashNum + "!96";
     const googlePhoto = avatar || "https://www.zc777a.com/siteadmin/skin/lobby_asset/common/common/profile/icon_wd_mrtx.avif?manualVersion=1&version=v7.3.232";
 
-    const existingUser = await findExistingUserAccount(cleanEmail);
+    let uid = providedUid || null;
+
+    // 1. Ensure user is created / authenticated in Firebase Auth
+    if (!uid && window.auth) {
+      // First try creating the user directly in Firebase Auth with standard Google password
+      try {
+        const userCred = await withTimeout(createUserWithEmailAndPassword(window.auth, cleanEmail, googleAuthSecretPass), 8000);
+        if (userCred && userCred.user) {
+          uid = userCred.user.uid;
+          console.log("Successfully created Google account in Firebase Authentication:", uid);
+        }
+      } catch (createErr) {
+        if (createErr && createErr.code === 'auth/email-already-in-use') {
+          // Account already exists in Firebase Auth -> Try sign in
+          try {
+            const cred = await withTimeout(signInWithEmailAndPassword(window.auth, cleanEmail, googleAuthSecretPass), 6000);
+            if (cred && cred.user) uid = cred.user.uid;
+          } catch (signErr) {
+            // If registered with custom password previously, attempt with stored password
+            try {
+              const localUsers = getLocalRegisteredUsers();
+              const existingLocal = localUsers[cleanEmail] || localUsers[emailKey];
+              if (existingLocal && existingLocal.password) {
+                const cred2 = await withTimeout(signInWithEmailAndPassword(window.auth, cleanEmail, String(existingLocal.password).trim()), 6000);
+                if (cred2 && cred2.user) uid = cred2.user.uid;
+              }
+            } catch (err2) {
+              console.warn("Firebase Auth existing account sign-in:", err2);
+            }
+          }
+        } else {
+          console.warn("Firebase Auth Google user creation notice:", createErr);
+        }
+      }
+    }
+
+    if (!uid && window.auth && window.auth.currentUser) {
+      uid = window.auth.currentUser.uid;
+    }
+
+    if (!uid) {
+      uid = getDeterministicUid(cleanEmail);
+    }
+
+    const existingUser = await findExistingUserAccount(cleanEmail, uid);
 
     if (existingUser) {
       existingUser.uid = uid;
@@ -8647,14 +8621,19 @@
       if (!existingUser.avatar) existingUser.avatar = googlePhoto;
       if (!existingUser.username) existingUser.username = googleDisplayName;
       if (!existingUser.displayName) existingUser.displayName = googleDisplayName;
+      if (!existingUser.provider) existingUser.provider = "google.com";
 
       saveLocalRegisteredUser(cleanEmail, existingUser);
       window.currentUserUid = uid;
 
       if (window.db && window.setDoc && window.doc) {
         const serverTS = window.serverTimestamp ? window.serverTimestamp() : new Date().toISOString();
-        window.setDoc(window.doc(window.db, "users", uid), { ...existingUser, lastActive: serverTS }, { merge: true }).catch(() => {});
-        window.setDoc(window.doc(window.db, "users", "email_" + cleanEmail.replace(/[^a-zA-Z0-9]/g, '_')), { ...existingUser, lastActive: serverTS }, { merge: true }).catch(() => {});
+        const writePromises = [
+          window.setDoc(window.doc(window.db, "users", uid), { ...existingUser, lastActive: serverTS }, { merge: true }),
+          window.setDoc(window.doc(window.db, "users", "email_" + emailKey), { ...existingUser, lastActive: serverTS }, { merge: true }),
+          window.setDoc(window.doc(window.db, "users", cleanEmail), { ...existingUser, lastActive: serverTS }, { merge: true })
+        ];
+        await withTimeout(Promise.allSettled(writePromises), 4000).catch(e => console.warn("Firestore Google sync:", e));
       }
 
       localStorage.setItem('pk96_logged_user', JSON.stringify({
@@ -8683,7 +8662,6 @@
       if (typeof window.closeModal === 'function') {
         window.closeModal('loginModal');
         window.closeModal('registerModal');
-        window.closeModal('googleAccountModal');
       }
 
       if (window.PK96 && window.PK96.logStep) {
@@ -8695,7 +8673,6 @@
     } else {
       const initialBal = 0;
       const initialBets = 0;
-      const hashNum = Math.abs(cleanEmail.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
       const myOwnReferCode = String(100000000 + (hashNum % 899999999));
       const pendingCode = sessionStorage.getItem('pk96_pending_referral') || localStorage.getItem('pk96_pending_referral') || "";
 
@@ -8705,20 +8682,68 @@
         referCode: myOwnReferCode,
         referredBy: pendingCode,
         balance: initialBal,
+        totalDeposit: 0,
+        totalDeposited: 0,
         totalBets: initialBets,
         turnover: initialBets,
         username: googleDisplayName,
         displayName: googleDisplayName,
         avatar: googlePhoto,
-        provider: "google.com"
+        provider: "google.com",
+        authType: "google"
       };
 
       saveLocalRegisteredUser(cleanEmail, userData);
 
       if (window.db && window.setDoc && window.doc) {
         const serverTS = window.serverTimestamp ? window.serverTimestamp() : new Date().toISOString();
-        window.setDoc(window.doc(window.db, "users", uid), { ...userData, createdAt: serverTS, lastActive: serverTS }, { merge: true }).catch(() => {});
-        window.setDoc(window.doc(window.db, "users", "email_" + cleanEmail.replace(/[^a-zA-Z0-9]/g, '_')), { ...userData, createdAt: serverTS, lastActive: serverTS }, { merge: true }).catch(() => {});
+        const writePromises = [
+          window.setDoc(window.doc(window.db, "users", uid), { ...userData, createdAt: serverTS, lastActive: serverTS }, { merge: true }),
+          window.setDoc(window.doc(window.db, "users", "email_" + emailKey), { uid, email: cleanEmail, displayName: googleDisplayName, username: googleDisplayName, avatar: googlePhoto, isLookupDoc: true, createdAt: serverTS, lastActive: serverTS }, { merge: true }),
+          window.setDoc(window.doc(window.db, "users", cleanEmail), { uid, email: cleanEmail, displayName: googleDisplayName, username: googleDisplayName, avatar: googlePhoto, isLookupDoc: true, createdAt: serverTS, lastActive: serverTS }, { merge: true })
+        ];
+        await withTimeout(Promise.allSettled(writePromises), 4000).catch(e => console.warn("Firestore Google save error:", e));
+      }
+
+      if (pendingCode) {
+        const cleanRefCode = String(pendingCode).trim();
+        try {
+          const localRefs = JSON.parse(localStorage.getItem('pk96_referral_tracking') || '{}');
+          if (!localRefs[cleanRefCode]) localRefs[cleanRefCode] = [];
+          if (!localRefs[cleanRefCode].some(r => r.uid === uid || r.email === cleanEmail)) {
+            localRefs[cleanRefCode].push({ uid: uid, email: cleanEmail, totalDeposit: 0, totalBets: 0, isValid: false, date: new Date().toISOString() });
+          }
+          localStorage.setItem('pk96_referral_tracking', JSON.stringify(localRefs));
+        } catch(e) {}
+
+        if (window.db && window.doc && window.setDoc) {
+          const serverTS = window.serverTimestamp ? window.serverTimestamp() : new Date().toISOString();
+          const referralDocData = {
+            referredUid: uid,
+            referredEmail: cleanEmail,
+            referCode: cleanRefCode,
+            totalDeposit: 0,
+            totalBets: 0,
+            isValid: false,
+            registeredAt: serverTS
+          };
+          await Promise.allSettled([
+            window.setDoc(window.doc(window.db, "referrals", uid), referralDocData, { merge: true }),
+            window.setDoc(window.doc(window.db, "referral_stats", cleanRefCode, "referred_users", uid), {
+              uid: uid,
+              email: cleanEmail,
+              totalDeposit: 0,
+              totalBets: 0,
+              isValid: false,
+              registeredAt: serverTS
+            }, { merge: true })
+          ]).catch(e => console.warn("Referral Firestore sync note:", e));
+        }
+
+        try {
+          sessionStorage.removeItem('pk96_pending_referral');
+          localStorage.removeItem('pk96_pending_referral');
+        } catch(e) {}
       }
 
       window.currentUserUid = uid;
@@ -8731,6 +8756,8 @@
         uid: uid,
         email: cleanEmail,
         balance: initialBal,
+        totalDeposit: 0,
+        totalDeposited: 0,
         totalBets: initialBets,
         turnover: initialBets,
         avatar: googlePhoto,
@@ -8745,7 +8772,6 @@
       if (typeof window.closeModal === 'function') {
         window.closeModal('loginModal');
         window.closeModal('registerModal');
-        window.closeModal('googleAccountModal');
       }
 
       if (window.PK96 && window.PK96.logStep) {
@@ -8815,15 +8841,13 @@
       if (window.openGoogleAccountModal) {
         window.openGoogleAccountModal("", "Please enter your device's Google Gmail address below to continue:");
       } else {
-        showLobbyToast("⚠️ " + (err.message || "Google Sign-In popup was blocked or closed."), true);
+        showLobbyToast("⚠️ " + (err.message || "Google Sign-In was cancelled."), true);
       }
     }
   };
 
-
-
-  // Non-blocking timeout wrapper for network requests (1500ms max wait)
-  function withTimeout(promise, ms = 1500) {
+  // Non-blocking timeout wrapper for network requests (3000ms wait)
+  function withTimeout(promise, ms = 3000) {
     return new Promise((resolve, reject) => {
       const timer = setTimeout(() => {
         reject(new Error("Firebase backend network timeout"));
@@ -8835,10 +8859,153 @@
     });
   }
 
+  // Active Real-Time Firestore Snapshot Listener Unsubscriber
+  let activeUserSnapshotUnsub = null;
+
+  // Helper to remove any deleted user from local caches
+  function cleanDeletedUserFromLocalCache(cleanEmail, uid) {
+    try {
+      const raw = localStorage.getItem('pk96_registered_users');
+      if (raw) {
+        const users = JSON.parse(raw);
+        if (cleanEmail) {
+          const lower = cleanEmail.toLowerCase().trim();
+          delete users[lower];
+          const emailKey = lower.replace(/[^a-zA-Z0-9]/g, "_");
+          delete users[emailKey];
+        }
+        for (const k in users) {
+          if (users[k]) {
+            if (uid && users[k].uid === uid) {
+              delete users[k];
+            } else if (cleanEmail && users[k].email && users[k].email.toLowerCase().trim() === cleanEmail.toLowerCase().trim()) {
+              delete users[k];
+            }
+          }
+        }
+        localStorage.setItem('pk96_registered_users', JSON.stringify(users));
+      }
+    } catch(e) {}
+  }
+  window.cleanDeletedUserFromLocalCache = cleanDeletedUserFromLocalCache;
+
+  // Real-Time Account & Balance Listener on Firestore users/{uid}
+  function subscribeToRealtimeUserData(uid, email) {
+    if (activeUserSnapshotUnsub) {
+      try { activeUserSnapshotUnsub(); } catch(e) {}
+      activeUserSnapshotUnsub = null;
+    }
+    if (!uid || !window.db || !window.onSnapshot || !window.doc) return;
+
+    const cleanEmail = email ? email.toLowerCase().trim() : "";
+    const docRef = window.doc(window.db, "users", uid);
+
+    try {
+      activeUserSnapshotUnsub = window.onSnapshot(docRef, (docSnap) => {
+        if (!docSnap.exists()) {
+          // Account was deleted in Firebase backend!
+          console.warn("Real-time sync: User account was deleted in Firebase backend:", uid);
+          cleanDeletedUserFromLocalCache(cleanEmail, uid);
+          if (window.logoutUserFirebase) {
+            window.logoutUserFirebase();
+          } else {
+            renderUserLoggedOutUI();
+          }
+          if (typeof showLobbyToast === 'function') {
+            showLobbyToast("Account was removed from the backend database.", true);
+          }
+          return;
+        }
+
+        if (docSnap.metadata && docSnap.metadata.hasPendingWrites) {
+          // Skip local pending writes to avoid rubber-banding/jitter
+          return;
+        }
+
+        const data = docSnap.data();
+        if (!data) return;
+
+        const newBal = (typeof data.balance === 'number' && !isNaN(data.balance)) ? data.balance : 0;
+        const newBets = (typeof (data.totalBets || data.turnover) === 'number' && !isNaN(data.totalBets || data.turnover)) ? (data.totalBets || data.turnover) : 0;
+        const newAvatar = data.avatar || "https://www.zc777a.com/siteadmin/skin/lobby_asset/common/common/profile/icon_wd_mrtx.avif?manualVersion=1&version=v7.3.232";
+        const newUsername = data.username || data.displayName || (cleanEmail ? cleanEmail.split('@')[0] : 'User');
+        const newReferCode = data.referCode || null;
+        const newReferredBy = data.referredBy || "";
+
+        // Update Header & Profile Balances in real time
+        const headerUserBalance = document.getElementById("headerUserBalance");
+        if (headerUserBalance) headerUserBalance.textContent = Number(newBal).toLocaleString();
+        const profileUserBalance = document.getElementById("profileUserBalance");
+        if (profileUserBalance) profileUserBalance.textContent = Number(newBal).toLocaleString();
+        const profileUserEmailDisplay = document.getElementById("profileUserEmailDisplay");
+        if (profileUserEmailDisplay) profileUserEmailDisplay.textContent = newUsername;
+        const profileAvatarImg = document.getElementById("profileAvatarImg");
+        if (profileAvatarImg && newAvatar) profileAvatarImg.src = newAvatar;
+
+        // Update PK96 engine balance without triggering recursive writes
+        if (window.PK96 && typeof window.PK96.setBalance === 'function') {
+          const curPKBal = window.PK96.getBalance ? window.PK96.getBalance() : null;
+          if (curPKBal === null || Math.abs(curPKBal - newBal) >= 0.001) {
+            window.PK96.setBalance(newBal, false);
+            if (typeof window.PK96.updateDOM === 'function') window.PK96.updateDOM(newBal);
+          }
+        }
+
+        // Update active session in localStorage
+        try {
+          const savedStr = localStorage.getItem('pk96_logged_user');
+          if (savedStr) {
+            const savedObj = JSON.parse(savedStr);
+            if (savedObj && (savedObj.uid === uid || (cleanEmail && savedObj.email === cleanEmail))) {
+              savedObj.balance = newBal;
+              savedObj.totalBets = newBets;
+              savedObj.turnover = newBets;
+              savedObj.avatar = newAvatar;
+              savedObj.username = newUsername;
+              savedObj.displayName = newUsername;
+              if (newReferCode) savedObj.referCode = newReferCode;
+              if (newReferredBy) savedObj.referredBy = newReferredBy;
+              localStorage.setItem('pk96_logged_user', JSON.stringify(savedObj));
+            }
+          }
+          localStorage.setItem('pk96_balance', newBal.toString());
+          localStorage.setItem('pk96_user_bets', newBets.toString());
+        } catch(e) {}
+
+        // Notify iframes of real-time balance
+        try {
+          const iframes = document.querySelectorAll('iframe');
+          iframes.forEach(f => {
+            try {
+              if (f.contentWindow) {
+                f.contentWindow.postMessage({
+                  type: 'PK96_BALANCE_UPDATE',
+                  balance: newBal,
+                  totalBets: newBets,
+                  user: { uid, email: cleanEmail, username: newUsername }
+                }, '*');
+              }
+            } catch(e) {}
+          });
+        } catch(e) {}
+
+        window.dispatchEvent(new CustomEvent("pk96_bet_changed", { detail: { totalBets: newBets } }));
+        window.dispatchEvent(new CustomEvent("pk96_balance_changed", { detail: { balance: newBal } }));
+        if (typeof updateVipUI === 'function') updateVipUI();
+        if (typeof updateReferralUI === 'function') updateReferralUI();
+      }, (err) => {
+        console.warn("Real-time user snapshot notice:", err);
+      });
+    } catch(e) {
+      console.warn("Failed to attach snapshot listener:", e);
+    }
+  }
+  window.subscribeToRealtimeUserData = subscribeToRealtimeUserData;
+
   // Local Accounts Persistence Helpers
   function extractPlainUserData(data) {
     if (!data || typeof data !== "object") return {};
-    const bal = (typeof data.balance === "number" && !isNaN(data.balance)) ? data.balance : (window.PK96 ? window.PK96.getBalance() : 0);
+    const bal = (typeof data.balance === "number" && !isNaN(data.balance)) ? data.balance : 0;
     const tb = (typeof (data.totalBets || data.turnover) === "number" && !isNaN(data.totalBets || data.turnover)) ? (data.totalBets || data.turnover) : 0;
     const av = (typeof data.avatar === "string" && data.avatar) ? data.avatar : "";
     const un = (typeof data.username === "string" && data.username) ? data.username : ((typeof data.displayName === "string" && data.displayName) ? data.displayName : "");
@@ -8908,7 +9075,7 @@
         ? userData.balance
         : ((existingPlain && typeof existingPlain.balance === "number" && !isNaN(existingPlain.balance))
             ? existingPlain.balance
-            : (window.PK96 ? window.PK96.getBalance() : 0));
+            : 0);
       const totalBetsVal = (userData && typeof (userData.totalBets || userData.turnover) === "number" && !isNaN(userData.totalBets || userData.turnover))
         ? (userData.totalBets || userData.turnover)
         : ((existingPlain && typeof (existingPlain.totalBets || existingPlain.turnover) === "number" && !isNaN(existingPlain.totalBets || existingPlain.turnover))
@@ -9056,12 +9223,19 @@
     if (typeof updateReferralUI === "function") {
       updateReferralUI();
     }
+
+    // Attach or update active real-time listener on this user's Firestore document
+    subscribeToRealtimeUserData(uid, cleanEmail);
   };
   const renderUserLoggedInUI = window.renderUserLoggedInUI;
 
   // Helper function to render logged-out UI
   window.renderUserLoggedOutUI = function() {
     window.currentUserUid = null;
+    if (activeUserSnapshotUnsub) {
+      try { activeUserSnapshotUnsub(); } catch(e) {}
+      activeUserSnapshotUnsub = null;
+    }
     if (window.PK96 && typeof window.PK96.clearSession === 'function') {
       window.PK96.clearSession();
     } else {
@@ -9090,7 +9264,7 @@
     const headerUserInfo = document.getElementById("headerUserInfo");
     const headerUserBalance = document.getElementById("headerUserBalance");
     const profileLoginPrompt = document.getElementById("profileLoginPrompt");
-    const profileAuthBtnsInline = document.getElementById("profileAuthButtonsInline");
+    const profileAuthBtnsInline = document.getElementById("profileAuthBtnsInline");
     const profileUserDetails = document.getElementById("profileUserDetails");
     const profileAvatarImg = document.getElementById("profileAvatarImg");
     const logoutBtnWrapper = document.querySelector(".logout-btn-wrapper");
@@ -9102,8 +9276,6 @@
     if (profileUserDetails) profileUserDetails.style.display = "none";
     if (logoutBtnWrapper) logoutBtnWrapper.style.display = "block";
     if (profileAvatarImg) profileAvatarImg.src = "https://www.zc777a.com/siteadmin/skin/lobby_asset/common/common/profile/icon_wd_mrtx.avif?manualVersion=1&version=v7.3.232";
-    const guestBal = 0;
-    const guestBets = 0;
     if (window.PK96) {
       window.PK96.setBalance(0, false);
       window.PK96.updateDOM(0);
@@ -9155,53 +9327,7 @@
     }
   } catch(e) {}
 
-  // Restore active user session from localStorage
-  try {
-      const savedUserStr = localStorage.getItem('pk96_logged_user');
-      if (savedUserStr) {
-        const savedUser = JSON.parse(savedUserStr);
-        if (savedUser && savedUser.email && savedUser.uid && !String(savedUser.uid).startsWith('guest_') && savedUser.email !== 'guest@pk96.com') {
-          const cleanEmail = savedUser.email.toLowerCase().trim();
-          const localUsers = getLocalRegisteredUsers();
-          const emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, '_');
-          const localUser = localUsers[cleanEmail] || localUsers[emailKey] || savedUser;
-
-          const curBal = (typeof localUser.balance === 'number' && !isNaN(localUser.balance)) ? localUser.balance : ((typeof savedUser.balance === 'number' && !isNaN(savedUser.balance)) ? savedUser.balance : (window.PK96 ? window.PK96.getBalance() : 0));
-          const curBets = (typeof (localUser.totalBets || localUser.turnover) === 'number' && !isNaN(localUser.totalBets || localUser.turnover)) ? (localUser.totalBets || localUser.turnover) : ((typeof (savedUser.totalBets || savedUser.turnover) === 'number' && !isNaN(savedUser.totalBets || savedUser.turnover)) ? (savedUser.totalBets || savedUser.turnover) : 0);
-
-          savedUser.balance = curBal;
-          savedUser.totalBets = curBets;
-          savedUser.turnover = curBets;
-          localStorage.setItem('pk96_logged_user', JSON.stringify(savedUser));
-          renderUserLoggedInUI(savedUser.email, savedUser.uid, curBal, savedUser.avatar, savedUser.username || savedUser.displayName, curBets, savedUser.referCode);
-
-          // Asynchronously perform background Firestore fetch so progress from other devices is synced automatically
-          setTimeout(async () => {
-            try {
-              const freshAcc = await findExistingUserAccount(cleanEmail);
-              if (freshAcc) {
-                renderUserLoggedInUI(freshAcc.email, freshAcc.uid, freshAcc.balance, freshAcc.avatar, freshAcc.username || freshAcc.displayName, freshAcc.totalBets, freshAcc.referCode);
-                if (typeof updateVipUI === 'function') updateVipUI();
-                if (typeof updateReferralUI === 'function') updateReferralUI();
-              }
-            } catch(e) {}
-          }, 400);
-        } else {
-          localStorage.removeItem('pk96_logged_user');
-          if (typeof renderUserLoggedOutUI === 'function') {
-            renderUserLoggedOutUI();
-          }
-        }
-      } else {
-        if (typeof renderUserLoggedOutUI === 'function') {
-          renderUserLoggedOutUI();
-        }
-      }
-    } catch(e) {
-      console.warn("Error restoring user session:", e);
-    }
-
-  // Deterministic UID generator
+  // Deterministic UID generator fallback
   function getDeterministicUid(email) {
     if (!email) return 'usr_guest_' + Date.now();
     const clean = String(email).toLowerCase().trim();
@@ -9214,92 +9340,105 @@
   }
   window.getDeterministicUid = getDeterministicUid;
 
-  // Multi-tier user lookup helper to locate existing registered accounts without data loss
-  async function findExistingUserAccount(email) {
-    if (!email) return null;
-    const cleanEmail = String(email).toLowerCase().trim();
-    if (!cleanEmail) return null;
-    const emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, "_");
-    const detUid = getDeterministicUid(cleanEmail);
+  // Authoritative user lookup helper to locate existing accounts strictly from Firestore
+  async function findExistingUserAccount(identifier, explicitUid) {
+    if (!identifier) return null;
+    let cleanEmail = String(identifier).toLowerCase().trim();
+    if (!cleanEmail || cleanEmail === 'guest@pk96.com') return null;
+    let emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, "_");
 
-    // 1. Check local users store
-    const localUsers = getLocalRegisteredUsers();
-    let foundLocal = localUsers[cleanEmail] || localUsers[emailKey] || null;
-    if (!foundLocal) {
-      for (const k in localUsers) {
-        if (localUsers[k] && localUsers[k].email && localUsers[k].email.toLowerCase().trim() === cleanEmail) {
-          foundLocal = localUsers[k];
-          break;
-        }
-      }
-    }
-
-    // 2. Check Firestore documents across possible document locations
+    // Check Firestore documents across authoritative locations
     let foundFirestore = null;
     if (window.db && window.doc && window.getDoc) {
-      const docRefs = [
-        window.doc(window.db, "users", detUid),
+      const docRefs = [];
+      if (explicitUid && !String(explicitUid).startsWith('guest_')) {
+        docRefs.push(window.doc(window.db, "users", explicitUid));
+      }
+      if (window.auth && window.auth.currentUser && window.auth.currentUser.email && window.auth.currentUser.email.toLowerCase().trim() === cleanEmail) {
+        docRefs.push(window.doc(window.db, "users", window.auth.currentUser.uid));
+      }
+      docRefs.push(
         window.doc(window.db, "users", "email_" + emailKey),
         window.doc(window.db, "users", cleanEmail)
-      ];
-      if (foundLocal && foundLocal.uid) {
-        docRefs.unshift(window.doc(window.db, "users", foundLocal.uid));
-      }
+      );
 
       for (const dRef of docRefs) {
         try {
-          const snap = await withTimeout(window.getDoc(dRef), 3500);
+          const snap = await withTimeout(window.getDoc(dRef), 3000);
           if (snap.exists()) {
-            foundFirestore = snap.data();
-            break;
+            const data = snap.data();
+            if (data && ((data.email && data.email.toLowerCase().trim() === cleanEmail) || (data.username && data.username.toLowerCase().trim() === cleanEmail))) {
+              foundFirestore = data;
+              if (data.email) cleanEmail = data.email.toLowerCase().trim();
+              break;
+            }
           }
         } catch(e) {}
       }
 
-      // Query by email if not found yet
+      // Query by email in Firestore if not found yet
       if (!foundFirestore && window.collection && window.query && window.where && window.getDocs) {
         try {
           const q = window.query(window.collection(window.db, "users"), window.where("email", "==", cleanEmail));
-          const qSnap = await withTimeout(window.getDocs(q), 3500);
+          const qSnap = await withTimeout(window.getDocs(q), 3000);
           if (!qSnap.empty) {
-            foundFirestore = qSnap.docs[0].data();
+            for (const docItem of qSnap.docs) {
+              const d = docItem.data();
+              if (d && d.email && d.email.toLowerCase().trim() === cleanEmail) {
+                foundFirestore = d;
+                break;
+              }
+            }
+          }
+        } catch(e) {}
+      }
+
+      // Query by username in Firestore if identifier has no @
+      if (!foundFirestore && !cleanEmail.includes("@") && window.collection && window.query && window.where && window.getDocs) {
+        try {
+          const qUser = window.query(window.collection(window.db, "users"), window.where("username", "==", cleanEmail));
+          const qSnapUser = await withTimeout(window.getDocs(qUser), 3000);
+          if (!qSnapUser.empty) {
+            for (const docItem of qSnapUser.docs) {
+              const d = docItem.data();
+              if (d && d.username && d.username.toLowerCase().trim() === cleanEmail) {
+                foundFirestore = d;
+                if (d.email) cleanEmail = d.email.toLowerCase().trim();
+                break;
+              }
+            }
           }
         } catch(e) {}
       }
     }
 
-    if (!foundLocal && !foundFirestore) return null;
-
-    // Merge Firestore & Local user attributes preserving highest progress
-    const localPlain = foundLocal ? extractPlainUserData(foundLocal) : {};
-    const fsPlain = foundFirestore ? extractPlainUserData(foundFirestore) : {};
-
-    let activeLocalBets = 0;
-    try {
-      const activeStr = localStorage.getItem('pk96_logged_user');
-      if (activeStr) {
-        const activeObj = JSON.parse(activeStr);
-        if (activeObj && activeObj.email && activeObj.email.toLowerCase().trim() === cleanEmail) {
-          const b = Number(activeObj.totalBets || activeObj.turnover);
-          if (!isNaN(b) && b > activeLocalBets) activeLocalBets = b;
-        }
+    // If Firestore is available and no user document exists, clean any stale local caches and return null
+    if (window.db) {
+      if (!foundFirestore) {
+        cleanDeletedUserFromLocalCache(cleanEmail, explicitUid);
+        return null;
       }
-    } catch(e) {}
+    } else {
+      // Fallback only if offline / db uninitialized
+      const localUsers = getLocalRegisteredUsers();
+      if (localUsers[cleanEmail] && localUsers[cleanEmail].email && localUsers[cleanEmail].email.toLowerCase().trim() === cleanEmail) {
+        foundFirestore = localUsers[cleanEmail];
+      }
+    }
 
-    const uid = localPlain.uid || fsPlain.uid || detUid;
-    const password = localPlain.password || fsPlain.password || "";
-    const balance = (typeof fsPlain.balance === "number" && !isNaN(fsPlain.balance))
-      ? fsPlain.balance
-      : ((typeof localPlain.balance === "number" && !isNaN(localPlain.balance)) ? localPlain.balance : 0);
+    if (!foundFirestore) return null;
 
-    const fsBets = (typeof (fsPlain.totalBets || fsPlain.turnover) === "number" && !isNaN(fsPlain.totalBets || fsPlain.turnover)) ? (fsPlain.totalBets || fsPlain.turnover) : 0;
-    const localBets = (typeof (localPlain.totalBets || localPlain.turnover) === "number" && !isNaN(localPlain.totalBets || localPlain.turnover)) ? (localPlain.totalBets || localPlain.turnover) : 0;
-    const totalBets = Math.max(fsBets, localBets, activeLocalBets);
-    const avatar = fsPlain.avatar || localPlain.avatar || "https://www.zc777a.com/siteadmin/skin/lobby_asset/common/common/profile/icon_wd_mrtx.avif?manualVersion=1&version=v7.3.232";
-    const username = fsPlain.username || localPlain.username || cleanEmail.split("@")[0];
-    const displayName = fsPlain.displayName || localPlain.displayName || username;
-    const referCode = fsPlain.referCode || localPlain.referCode || null;
-    const referredBy = fsPlain.referredBy || localPlain.referredBy || "";
+    const fsPlain = extractPlainUserData(foundFirestore);
+    const detUid = getDeterministicUid(cleanEmail);
+    const uid = explicitUid || fsPlain.uid || detUid;
+    const password = fsPlain.password || "";
+    const balance = (typeof fsPlain.balance === "number" && !isNaN(fsPlain.balance)) ? fsPlain.balance : 0;
+    const totalBets = (typeof (fsPlain.totalBets || fsPlain.turnover) === "number" && !isNaN(fsPlain.totalBets || fsPlain.turnover)) ? (fsPlain.totalBets || fsPlain.turnover) : 0;
+    const avatar = fsPlain.avatar || "https://www.zc777a.com/siteadmin/skin/lobby_asset/common/common/profile/icon_wd_mrtx.avif?manualVersion=1&version=v7.3.232";
+    const username = fsPlain.username || cleanEmail.split("@")[0];
+    const displayName = fsPlain.displayName || username;
+    const referCode = fsPlain.referCode || null;
+    const referredBy = fsPlain.referredBy || "";
 
     const mergedUser = {
       uid,
@@ -9320,35 +9459,53 @@
   }
   window.findExistingUserAccount = findExistingUserAccount;
 
-  // Firebase Register function with multi-tier persistence (localStorage + Firestore + Auth)
+  // Restore active user session from Firestore
+  try {
+    const savedUserStr = localStorage.getItem('pk96_logged_user');
+    if (savedUserStr) {
+      const savedUser = JSON.parse(savedUserStr);
+      if (savedUser && savedUser.email && savedUser.uid && !String(savedUser.uid).startsWith('guest_') && savedUser.email !== 'guest@pk96.com') {
+        const cleanEmail = savedUser.email.toLowerCase().trim();
+
+        // Verify with Firebase backend immediately
+        setTimeout(async () => {
+          try {
+            const freshAcc = await findExistingUserAccount(cleanEmail, savedUser.uid);
+            if (freshAcc && freshAcc.email === cleanEmail) {
+              renderUserLoggedInUI(freshAcc.email, freshAcc.uid, freshAcc.balance, freshAcc.avatar, freshAcc.username || freshAcc.displayName, freshAcc.totalBets, freshAcc.referCode);
+              subscribeToRealtimeUserData(freshAcc.uid, freshAcc.email);
+            } else {
+              // Account was deleted in Firebase backend!
+              console.warn("Session restore: Account not found in Firebase backend, clearing session");
+              renderUserLoggedOutUI();
+            }
+          } catch(e) {
+            console.warn("Session validation error:", e);
+          }
+        }, 100);
+      } else {
+        localStorage.removeItem('pk96_logged_user');
+        if (typeof renderUserLoggedOutUI === 'function') renderUserLoggedOutUI();
+      }
+    } else {
+      if (typeof renderUserLoggedOutUI === 'function') renderUserLoggedOutUI();
+    }
+  } catch(e) {
+    console.warn("Error restoring user session:", e);
+  }
+
+  // Firebase Register function with real-time Firestore persistence
   window.registerUserWithFirebase = async function(email, password, referCode) {
     const cleanEmail = email.toLowerCase().trim();
     const inputPass = String(password).trim();
     const emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, '_');
 
-    // 1. Check if account already exists in local store or Firestore
+    // 1. Check if account already exists in Firebase backend
     const existingUser = await findExistingUserAccount(cleanEmail);
     if (existingUser) {
-      const savedPass = existingUser.password ? String(existingUser.password).trim() : null;
-      if (savedPass && savedPass === inputPass) {
-        // Same email & same password -> log into existing account preserving progress!
-        window.currentUserUid = existingUser.uid;
-        renderUserLoggedInUI(
-          cleanEmail,
-          existingUser.uid,
-          existingUser.balance,
-          existingUser.avatar,
-          existingUser.username || existingUser.displayName,
-          existingUser.totalBets,
-          existingUser.referCode
-        );
-        showLobbyToast("Account already exists! Logged in with all your existing progress.");
-        return existingUser;
-      } else {
-        const dupErr = new Error("This Gmail address is already registered. Please login instead.");
-        dupErr.code = "auth/email-already-in-use";
-        throw dupErr;
-      }
+      const dupErr = new Error("This Gmail address is already registered. Please login instead.");
+      dupErr.code = "auth/email-already-in-use";
+      throw dupErr;
     }
 
     let uid = getDeterministicUid(cleanEmail);
@@ -9369,10 +9526,10 @@
       }
     }
 
-    // 3. Prepare NEW user document data (Initial balance 0, initial bets 0)
+    // 3. Prepare NEW user document data
     const initialBal = 0;
     const initialBets = 0;
-    const hashNum = Math.abs(getDeterministicUid(cleanEmail).split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
+    const hashNum = Math.abs(cleanEmail.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
     const myOwnReferCode = String(100000000 + (hashNum % 899999999));
     const pendingCode = sessionStorage.getItem('pk96_pending_referral') || localStorage.getItem('pk96_pending_referral') || "";
     const inviterCode = (referCode && String(referCode).trim()) ? String(referCode).trim() : (pendingCode ? String(pendingCode).trim() : "");
@@ -9383,8 +9540,11 @@
       referCode: myOwnReferCode,
       referredBy: inviterCode,
       balance: initialBal,
+      totalDeposit: 0,
+      totalDeposited: 0,
       totalBets: initialBets,
       turnover: initialBets,
+      isValid: false,
       username: cleanEmail.split('@')[0],
       displayName: cleanEmail.split('@')[0],
       avatar: "https://www.zc777a.com/siteadmin/skin/lobby_asset/common/common/profile/icon_wd_mrtx.avif?manualVersion=1&version=v7.3.232",
@@ -9400,48 +9560,36 @@
     // Save in Firestore
     if (window.db && window.setDoc && window.doc) {
       const serverTS = window.serverTimestamp ? window.serverTimestamp() : new Date().toISOString();
-      window.setDoc(window.doc(window.db, "users", uid), { ...userData, createdAt: serverTS, lastActive: serverTS }, { merge: true }).catch(() => {});
-      window.setDoc(window.doc(window.db, "users", "email_" + emailKey), { ...userData, createdAt: serverTS, lastActive: serverTS }, { merge: true }).catch(() => {});
-      window.setDoc(window.doc(window.db, "users", cleanEmail), { ...userData, createdAt: serverTS, lastActive: serverTS }, { merge: true }).catch(() => {});
+      const writePromises = [
+        window.setDoc(window.doc(window.db, "users", uid), { ...userData, createdAt: serverTS, lastActive: serverTS }, { merge: true }),
+        window.setDoc(window.doc(window.db, "users", "email_" + emailKey), { uid, email: cleanEmail, displayName: userData.displayName, username: userData.username, avatar: userData.avatar, isLookupDoc: true, createdAt: serverTS, lastActive: serverTS }, { merge: true }),
+        window.setDoc(window.doc(window.db, "users", cleanEmail), { uid, email: cleanEmail, displayName: userData.displayName, username: userData.username, avatar: userData.avatar, isLookupDoc: true, createdAt: serverTS, lastActive: serverTS }, { merge: true })
+      ];
+      await withTimeout(Promise.allSettled(writePromises), 4000).catch(e => console.warn("Firestore user sync:", e));
     }
 
-    // Track referral relationship & referrer statistics
+    // Track referral relationship
     if (inviterCode) {
       const cleanRefCode = String(inviterCode).trim();
-      try {
-        const localRefs = JSON.parse(localStorage.getItem('pk96_referral_tracking') || '{}');
-        if (!localRefs[cleanRefCode]) localRefs[cleanRefCode] = [];
-        if (!localRefs[cleanRefCode].some(r => r.uid === uid || r.email === cleanEmail)) {
-          localRefs[cleanRefCode].push({ uid: uid, email: cleanEmail, date: new Date().toISOString() });
-        }
-        localStorage.setItem('pk96_referral_tracking', JSON.stringify(localRefs));
-      } catch(e) {}
-
       if (window.db && window.doc && window.setDoc) {
         const serverTS = window.serverTimestamp ? window.serverTimestamp() : new Date().toISOString();
         const referralDocData = {
           referredUid: uid,
           referredEmail: cleanEmail,
           referCode: cleanRefCode,
+          totalDeposit: 0,
+          totalBets: 0,
+          isValid: false,
           registeredAt: serverTS
         };
 
         window.setDoc(window.doc(window.db, "referrals", uid), referralDocData, { merge: true }).catch(e => console.warn("Referral doc sync skipped:", e));
-
-        if (window.increment) {
-          window.setDoc(window.doc(window.db, "referral_stats", cleanRefCode), {
-            totalReferrals: window.increment(1),
-            lastReferralAt: serverTS
-          }, { merge: true }).catch(e => console.warn("Referral stats sync skipped:", e));
-        } else {
-          window.setDoc(window.doc(window.db, "referral_stats", cleanRefCode), {
-            lastReferralAt: serverTS
-          }, { merge: true }).catch(e => console.warn("Referral stats sync skipped:", e));
-        }
-
         window.setDoc(window.doc(window.db, "referral_stats", cleanRefCode, "referred_users", uid), {
           uid: uid,
           email: cleanEmail,
+          totalDeposit: 0,
+          totalBets: 0,
+          isValid: false,
           registeredAt: serverTS
         }, { merge: true }).catch(e => console.warn("Referred item sync skipped:", e));
       }
@@ -9453,26 +9601,15 @@
       localStorage.removeItem('pk96_pending_referral');
     } catch(e) {}
 
-    // 4. Save active session & update UI
+    // Save active session & update UI
     window.currentUserUid = uid;
     localStorage.setItem('pk96_balance', '0');
     localStorage.setItem('pk96_guest_balance', '0');
     if (window.PK96 && typeof window.PK96.setBalance === 'function') {
       try { window.PK96.setBalance(0, false); } catch(e) {}
     }
-    localStorage.setItem('pk96_logged_user', JSON.stringify({
-      uid: uid,
-      email: cleanEmail,
-      balance: initialBal,
-      totalBets: initialBets,
-      turnover: initialBets,
-      avatar: userData.avatar,
-      username: userData.username,
-      displayName: userData.displayName,
-      referCode: myOwnReferCode,
-      referredBy: inviterCode
-    }));
     renderUserLoggedInUI(cleanEmail, uid, initialBal, userData.avatar, userData.username, initialBets, myOwnReferCode);
+    subscribeToRealtimeUserData(uid, cleanEmail);
 
     if (window.PK96 && window.PK96.logStep) {
       window.PK96.logStep('USER_REGISTER', { email: cleanEmail, referCode: myOwnReferCode, inviterCode });
@@ -9485,70 +9622,30 @@
   window.updateUserPassword = async function(email, newPassword) {
     const cleanEmail = email.toLowerCase().trim();
     const emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, '_');
-    const localUsers = getLocalRegisteredUsers();
-    let userDocData = localUsers[cleanEmail] || localUsers[emailKey] || localUsers[email] || {};
-
     const passStr = String(newPassword).trim();
-    userDocData.password = passStr;
-    userDocData.email = cleanEmail;
-    if (!userDocData.uid) {
-      userDocData.uid = getDeterministicUid(cleanEmail);
-    }
-
-    saveLocalRegisteredUser(cleanEmail, userDocData);
 
     try {
       if (db) {
-        setDoc(doc(db, "users", userDocData.uid), { password: passStr, lastActive: serverTimestamp() }, { merge: true }).catch(() => {});
+        setDoc(doc(db, "users", window.currentUserUid || getDeterministicUid(cleanEmail)), { password: passStr, lastActive: serverTimestamp() }, { merge: true }).catch(() => {});
         setDoc(doc(db, "users", "email_" + emailKey), { password: passStr, lastActive: serverTimestamp() }, { merge: true }).catch(() => {});
       }
     } catch(e) {}
   };
 
-  // Firebase Login function with multi-tier persistence (localStorage + Firestore + Auth)
-  window.loginUserWithFirebase = async function(email, password) {
-    const cleanEmail = email.toLowerCase().trim();
+  // Firebase Login function with real-time Firestore synchronization
+  window.loginUserWithFirebase = async function(emailOrUsername, password) {
+    const inputId = String(emailOrUsername).toLowerCase().trim();
     const inputPass = String(password).trim();
 
-    // 1. Check if user account exists in local store or Firestore
-    const existingUser = await findExistingUserAccount(cleanEmail);
-
-    if (existingUser) {
-      const savedPass = existingUser.password ? String(existingUser.password).trim() : null;
-      if (savedPass && savedPass !== inputPass) {
-        const passErr = new Error("Incorrect password. Please try again.");
-        passErr.code = "auth/wrong-password";
-        throw passErr;
-      }
-
-      existingUser.password = inputPass;
-      saveLocalRegisteredUser(cleanEmail, existingUser);
-
-      // Non-blocking Auth sync
-      if (window.auth) {
-        signInWithEmailAndPassword(window.auth, cleanEmail, inputPass).catch(() => {
-          createUserWithEmailAndPassword(window.auth, cleanEmail, inputPass).catch(() => {});
-        });
-      }
-
-      window.currentUserUid = existingUser.uid;
-      renderUserLoggedInUI(
-        cleanEmail,
-        existingUser.uid,
-        existingUser.balance,
-        existingUser.avatar,
-        existingUser.username || existingUser.displayName,
-        existingUser.totalBets,
-        existingUser.referCode
-      );
-      if (window.PK96 && window.PK96.logStep) {
-        window.PK96.logStep('USER_LOGIN', { email: cleanEmail });
-      }
-      showLobbyToast("Welcome back! Successfully logged in.");
-      return existingUser;
+    // Resolve target email if user entered a username
+    let cleanEmail = inputId;
+    let existingAccount = await findExistingUserAccount(inputId);
+    if (existingAccount && existingAccount.email) {
+      cleanEmail = existingAccount.email.toLowerCase().trim();
     }
+    const emailKey = cleanEmail.replace(/[^a-zA-Z0-9]/g, '_');
 
-    // 2. Try direct Firebase Auth sign-in
+    // 1. Direct Firebase Auth sign-in verification
     let authUser = null;
     let authErrObj = null;
     if (window.auth) {
@@ -9563,35 +9660,104 @@
 
     if (authUser) {
       const uid = authUser.uid;
-      const accountData = await findExistingUserAccount(cleanEmail);
-      let balance = accountData ? accountData.balance : (window.PK96 ? window.PK96.getBalance() : 0);
-      let totalBets = accountData ? accountData.totalBets : 0;
+      const accountData = await findExistingUserAccount(cleanEmail, uid);
+      let balance = (accountData && typeof accountData.balance === "number" && !isNaN(accountData.balance)) ? accountData.balance : 0;
+      let totalBets = (accountData && typeof (accountData.totalBets || accountData.turnover) === "number" && !isNaN(accountData.totalBets || accountData.turnover)) ? (accountData.totalBets || accountData.turnover) : 0;
       let avatar = accountData ? accountData.avatar : "https://www.zc777a.com/siteadmin/skin/lobby_asset/common/common/profile/icon_wd_mrtx.avif?manualVersion=1&version=v7.3.232";
       let customName = accountData ? (accountData.username || accountData.displayName) : cleanEmail.split("@")[0];
       let referCode = accountData ? accountData.referCode : null;
       let referredBy = accountData ? accountData.referredBy : "";
 
-      saveLocalRegisteredUser(cleanEmail, { uid, email: cleanEmail, password: inputPass, balance, totalBets, turnover: totalBets, avatar, username: customName, displayName: customName, referCode, referredBy });
+      const userPayload = { uid, email: cleanEmail, password: inputPass, balance, totalBets, turnover: totalBets, avatar, username: customName, displayName: customName, referCode, referredBy };
+      saveLocalRegisteredUser(cleanEmail, userPayload);
       window.currentUserUid = uid;
       renderUserLoggedInUI(cleanEmail, uid, balance, avatar, customName, totalBets, referCode);
+      subscribeToRealtimeUserData(uid, cleanEmail);
+      if (window.PK96 && window.PK96.logStep) {
+        window.PK96.logStep('USER_LOGIN', { email: cleanEmail });
+      }
       showLobbyToast("Welcome back! Successfully logged in.");
       return authUser;
     }
 
-    if (authErrObj && (authErrObj.code === "auth/wrong-password")) {
+    // 2. If Auth failed because of wrong password, verify against Firestore before rejecting
+    if (authErrObj && (authErrObj.code === "auth/wrong-password" || authErrObj.code === "auth/invalid-credential")) {
+      const existingUser = existingAccount || (await findExistingUserAccount(cleanEmail));
+      if (existingUser && existingUser.password && String(existingUser.password).trim() === inputPass) {
+        existingUser.password = inputPass;
+        saveLocalRegisteredUser(cleanEmail, existingUser);
+        window.currentUserUid = existingUser.uid;
+        renderUserLoggedInUI(
+          cleanEmail,
+          existingUser.uid,
+          existingUser.balance,
+          existingUser.avatar,
+          existingUser.username || existingUser.displayName,
+          existingUser.totalBets,
+          existingUser.referCode
+        );
+        subscribeToRealtimeUserData(existingUser.uid, cleanEmail);
+        if (window.PK96 && window.PK96.logStep) {
+          window.PK96.logStep('USER_LOGIN', { email: cleanEmail });
+        }
+        showLobbyToast("Welcome back! Successfully logged in.");
+        return existingUser;
+      }
       const passErr = new Error("Incorrect password. Please try again.");
       passErr.code = "auth/wrong-password";
       throw passErr;
     }
 
-    // Account not found anywhere
-    const noUserErr = new Error("No account found with this Gmail. Please click Register to create an account.");
+    // 3. Check if user account exists in Firestore backend
+    const existingUser = existingAccount || (await findExistingUserAccount(cleanEmail));
+
+    if (existingUser && existingUser.email && existingUser.email.toLowerCase().trim() === cleanEmail) {
+      const savedPass = existingUser.password ? String(existingUser.password).trim() : null;
+      if (savedPass && savedPass !== inputPass) {
+        const passErr = new Error("Incorrect password. Please try again.");
+        passErr.code = "auth/wrong-password";
+        throw passErr;
+      }
+
+      existingUser.password = inputPass;
+      saveLocalRegisteredUser(cleanEmail, existingUser);
+
+      // Attempt to link/create Firebase Auth credential in background
+      if (window.auth) {
+        createUserWithEmailAndPassword(window.auth, cleanEmail, inputPass).catch(() => {});
+      }
+
+      window.currentUserUid = existingUser.uid;
+      renderUserLoggedInUI(
+        cleanEmail,
+        existingUser.uid,
+        existingUser.balance,
+        existingUser.avatar,
+        existingUser.username || existingUser.displayName,
+        existingUser.totalBets,
+        existingUser.referCode
+      );
+      subscribeToRealtimeUserData(existingUser.uid, cleanEmail);
+      if (window.PK96 && window.PK96.logStep) {
+        window.PK96.logStep('USER_LOGIN', { email: cleanEmail });
+      }
+      showLobbyToast("Welcome back! Successfully logged in.");
+      return existingUser;
+    }
+
+    // Account not found in Firebase backend
+    cleanDeletedUserFromLocalCache(cleanEmail);
+    const noUserErr = new Error("No account found with this Gmail in Firebase backend. Please click Register to create an account.");
     noUserErr.code = "auth/user-not-found";
     throw noUserErr;
   };
 
   // Firebase Logout function
   window.logoutUserFirebase = async function() {
+    if (activeUserSnapshotUnsub) {
+      try { activeUserSnapshotUnsub(); } catch(e) {}
+      activeUserSnapshotUnsub = null;
+    }
     if (window.PK96 && window.PK96.logStep) {
       window.PK96.logStep('USER_LOGOUT');
     }
@@ -9601,6 +9767,8 @@
       console.warn("SignOut error:", e);
     }
     localStorage.removeItem('pk96_logged_user');
+    localStorage.removeItem('pk96_user_bets');
+    localStorage.removeItem('pk96_user_deposits');
     renderUserLoggedOutUI();
   };
 
@@ -9617,57 +9785,51 @@
       }
     } catch(e) {}
 
-    if (user && !user.isAnonymous) {
-      console.log("Firebase Auth State: Real user logged in:", user.email, user.uid);
-      const cleanEmail = user.email ? user.email.toLowerCase().trim() : '';
+    if (user && !user.isAnonymous && user.email) {
+      const cleanEmail = user.email.toLowerCase().trim();
+      const uid = user.uid;
+      console.log("Firebase Auth State: Real user logged in:", cleanEmail, uid);
 
-      if (cleanEmail) {
-        const existingUser = await findExistingUserAccount(cleanEmail);
+      const existingUser = await findExistingUserAccount(cleanEmail, uid);
+      if (existingUser) {
+        window.currentUserUid = existingUser.uid || uid;
+        renderUserLoggedInUI(
+          cleanEmail,
+          window.currentUserUid,
+          existingUser.balance,
+          existingUser.avatar,
+          existingUser.username || existingUser.displayName,
+          existingUser.totalBets,
+          existingUser.referCode
+        );
+        subscribeToRealtimeUserData(window.currentUserUid, cleanEmail);
+      } else {
+        window.currentUserUid = uid;
+        renderUserLoggedInUI(cleanEmail, uid, 0, null, cleanEmail.split('@')[0], 0);
+        subscribeToRealtimeUserData(uid, cleanEmail);
+      }
+    } else {
+      console.log("Firebase Auth State: Anonymous or logged out");
+      if (savedUser && savedUser.email && !String(savedUser.uid).startsWith('guest_') && savedUser.email !== 'guest@pk96.com') {
+        const cleanEmail = savedUser.email.toLowerCase().trim();
+        const existingUser = await findExistingUserAccount(cleanEmail, savedUser.uid);
         if (existingUser) {
-          window.currentUserUid = existingUser.uid;
+          window.currentUserUid = existingUser.uid || savedUser.uid;
           renderUserLoggedInUI(
             cleanEmail,
-            existingUser.uid,
+            window.currentUserUid,
             existingUser.balance,
             existingUser.avatar,
             existingUser.username || existingUser.displayName,
             existingUser.totalBets,
             existingUser.referCode
           );
-          return;
+          subscribeToRealtimeUserData(window.currentUserUid, cleanEmail);
+        } else {
+          // Account was deleted in backend Firestore!
+          cleanDeletedUserFromLocalCache(cleanEmail, savedUser.uid);
+          renderUserLoggedOutUI();
         }
-      }
-
-      if (savedUser) {
-        window.currentUserUid = savedUser.uid;
-        renderUserLoggedInUI(
-          savedUser.email,
-          savedUser.uid,
-          savedUser.balance,
-          savedUser.avatar,
-          savedUser.username || savedUser.displayName,
-          savedUser.totalBets,
-          savedUser.referCode
-        );
-      } else if (cleanEmail) {
-        window.currentUserUid = user.uid;
-        renderUserLoggedInUI(cleanEmail, user.uid, 0, null, null, 0);
-      } else {
-        renderUserLoggedOutUI();
-      }
-    } else {
-      console.log("Firebase Auth State: Anonymous or logged out");
-      if (savedUser && savedUser.email) {
-        window.currentUserUid = savedUser.uid;
-        renderUserLoggedInUI(
-          savedUser.email,
-          savedUser.uid,
-          savedUser.balance,
-          savedUser.avatar,
-          savedUser.username || savedUser.displayName,
-          savedUser.totalBets,
-          savedUser.referCode
-        );
       } else {
         renderUserLoggedOutUI();
       }
@@ -9746,22 +9908,69 @@
   window.showLobbyToast = showLobbyToast;
   window.alert = function(msg) { showLobbyToast(msg); };
 
+  // --- Official Social Channels ---
+  const PK96_OFFICIAL_WHATSAPP_URL = "https://whatsapp.com/channel/0029Vb8Sows3wtb5Gt5LEO3K";
+  const PK96_OFFICIAL_TELEGRAM_URL = "https://t.me/+bxIx2AalpIhjMjhk";
+
+  function openExternalUrl(url, targetName) {
+    if (!url) return;
+    let opened = false;
+    try {
+      const win = window.open(url, '_blank', 'noopener,noreferrer');
+      if (win && !win.closed && typeof win.closed !== 'undefined') {
+        opened = true;
+      }
+    } catch(e) {}
+
+    if (!opened) {
+      try {
+        const a = document.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          try { document.body.removeChild(a); } catch(e){}
+        }, 500);
+        opened = true;
+      } catch(e) {
+        window.location.href = url;
+      }
+    }
+    if (targetName && typeof showLobbyToast === 'function') {
+      showLobbyToast(`Opening Pk96 ${targetName}...`);
+    }
+  }
+  window.openExternalUrl = openExternalUrl;
+
   // --- Referral & Unique Code Generator for PK96 ---
   function getPK96ReferralUrl(code) {
     if (!code || code === 'Loading') return '';
     const origin = window.location.origin || (window.location.protocol + '//' + window.location.host);
-    let pathname = window.location.pathname || '/';
+    const pathname = window.location.pathname || '/';
     return `${origin}${pathname}?ref=${code}`;
   }
   window.getPK96ReferralUrl = getPK96ReferralUrl;
 
   function getActiveReferralLink() {
-    const referLinkEl = document.getElementById('referralLinkText');
-    if (referLinkEl && referLinkEl.textContent && referLinkEl.textContent.trim().startsWith('http')) {
-      return referLinkEl.textContent.trim();
-    }
     const code = getUserInviteCode();
-    return getPK96ReferralUrl(code);
+    const url = getPK96ReferralUrl(code);
+
+    // Keep DOM in sync with real account invite code and URL
+    const referLinkEl = document.getElementById('referralLinkText');
+    if (referLinkEl && url) {
+      referLinkEl.textContent = url;
+    }
+    const inviteCodeEl = document.getElementById('referralInviteCode');
+    if (inviteCodeEl && code) {
+      inviteCodeEl.textContent = code;
+    }
+    const platformIdEl = document.getElementById('referralPlatformId');
+    if (platformIdEl && code) {
+      platformIdEl.textContent = code;
+    }
+    return url;
   }
   window.getActiveReferralLink = getActiveReferralLink;
 
@@ -9772,8 +9981,8 @@
     }
     if (!url) return;
 
-    // Copy to clipboard so user always has the referral link ready
-    copyTextToClipboard(url, "🚀 Game link copied! Opening game...", false);
+    // Copy to clipboard so user always has the real account referral link ready
+    copyTextToClipboard(url, "🚀 Real account game link copied! Opening game...", false);
 
     let opened = false;
     try {
@@ -9833,23 +10042,50 @@
       const savedUserStr = localStorage.getItem("pk96_logged_user");
       if (savedUserStr) savedUser = JSON.parse(savedUserStr);
     } catch(e) {}
-    if (savedUser && (savedUser.uid || savedUser.email)) {
-      if (savedUser.referCode && savedUser.referCode !== "Loading") {
+
+    // 1. If Firebase Auth has an active authenticated user
+    if (window.auth && window.auth.currentUser && window.auth.currentUser.email) {
+      const cleanAuthEmail = window.auth.currentUser.email.toLowerCase().trim();
+      const localUsers = (typeof getLocalRegisteredUsers === 'function') ? getLocalRegisteredUsers() : {};
+      const regUser = localUsers[cleanAuthEmail];
+      if (regUser && regUser.referCode && regUser.referCode !== 'Loading') {
+        return String(regUser.referCode);
+      }
+      if (savedUser && savedUser.email && savedUser.email.toLowerCase().trim() === cleanAuthEmail && savedUser.referCode && savedUser.referCode !== 'Loading') {
         return String(savedUser.referCode);
       }
-      const userKey = savedUser.email ? savedUser.email.toLowerCase().trim() : (savedUser.uid || "");
-      let hash = 0;
-      for (let i = 0; i < userKey.length; i++) {
-        hash = ((hash << 5) - hash) + userKey.charCodeAt(i);
-        hash |= 0;
-      }
-      const codeNum = String(100000000 + (Math.abs(hash) % 899999999));
-      savedUser.referCode = codeNum;
-      try {
-        localStorage.setItem("pk96_logged_user", JSON.stringify(savedUser));
-      } catch(e) {}
-      return codeNum;
+      const hash = Math.abs(cleanAuthEmail.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
+      return String(100000000 + (hash % 899999999));
     }
+
+    // 2. If logged user exists in localStorage
+    if (savedUser && (savedUser.uid || savedUser.email) && !String(savedUser.uid || '').startsWith('guest_') && savedUser.email !== 'guest@pk96.com') {
+      if (savedUser.referCode && savedUser.referCode !== "Loading" && savedUser.referCode !== "PK96-GUEST") {
+        return String(savedUser.referCode);
+      }
+      if (savedUser.email) {
+        try {
+          const regUsers = (typeof getLocalRegisteredUsers === 'function') ? getLocalRegisteredUsers() : JSON.parse(localStorage.getItem('pk96_registered_users') || '{}');
+          const cleanEmail = savedUser.email.toLowerCase().trim();
+          if (regUsers[cleanEmail] && regUsers[cleanEmail].referCode) {
+            savedUser.referCode = String(regUsers[cleanEmail].referCode);
+            try { localStorage.setItem("pk96_logged_user", JSON.stringify(savedUser)); } catch(e) {}
+            return String(savedUser.referCode);
+          }
+        } catch(e) {}
+        const hash = Math.abs(savedUser.email.toLowerCase().trim().split('').reduce((acc, char) => acc + char.charCodeAt(0), 0));
+        const codeNum = String(100000000 + (hash % 899999999));
+        savedUser.referCode = codeNum;
+        try {
+          localStorage.setItem("pk96_logged_user", JSON.stringify(savedUser));
+          if (savedUser.email && typeof saveLocalRegisteredUser === 'function') {
+            saveLocalRegisteredUser(savedUser.email, savedUser);
+          }
+        } catch(e) {}
+        return codeNum;
+      }
+    }
+
     let guestCode = localStorage.getItem("pk96_guest_invite_code");
     if (!guestCode || guestCode === "Loading") {
       guestCode = String(100000000 + Math.floor(Math.random() * 899999999));
@@ -9895,55 +10131,93 @@
       }
     } catch(e) {}
 
-    // Calculate local referral stats (total & valid)
-    let localTotalCount = 0;
-    let localValidCount = 0;
+    // Deduplicated Map for counting unique users (1 registration = exactly 1 count)
+    const referredUsersMap = new Map();
+
+    // 1. Scan pk96_referral_tracking
     try {
       const localRefs = JSON.parse(localStorage.getItem('pk96_referral_tracking') || '{}');
       const checkKeys = [code];
       if (loggedUser) {
-        if (loggedUser.email) checkKeys.push(loggedUser.email.toLowerCase().trim());
-        if (loggedUser.uid) checkKeys.push(loggedUser.uid);
-        if (loggedUser.referCode) checkKeys.push(loggedUser.referCode);
+        if (loggedUser.referCode) checkKeys.push(String(loggedUser.referCode).trim());
+        if (loggedUser.email) checkKeys.push(String(loggedUser.email).toLowerCase().trim());
+        if (loggedUser.uid) checkKeys.push(String(loggedUser.uid).trim());
       }
       checkKeys.forEach(k => {
         if (k && localRefs[k] && Array.isArray(localRefs[k])) {
-          localTotalCount = Math.max(localTotalCount, localRefs[k].length);
           localRefs[k].forEach(sub => {
-            if (sub && (sub.isValid || (Number(sub.totalDeposit || 0) >= 500 && Number(sub.totalBets || 0) >= 5000))) {
-              localValidCount++;
+            if (!sub) return;
+            const uKey = (sub.uid || sub.email || '').toLowerCase().trim();
+            if (!uKey) return;
+            const dep = Math.max(
+              Number(sub.totalDeposit || 0),
+              Number(sub.totalDeposited || 0),
+              Number(sub.totalDeposits || 0),
+              Number(sub.depositAmount || 0)
+            );
+            const bets = Math.max(
+              Number(sub.totalBets || 0),
+              Number(sub.turnover || 0),
+              Number(sub.bets || 0)
+            );
+            const isValid = (sub.isValid === true) || (dep >= 500 && bets >= 5000);
+            if (!referredUsersMap.has(uKey) || isValid) {
+              referredUsersMap.set(uKey, { uid: sub.uid, email: sub.email, totalDeposit: dep, totalBets: bets, isValid });
             }
           });
         }
       });
     } catch(e) {}
 
-    // Also scan all registered users in localStorage for users referred by this user
+    // 2. Scan registered users in localStorage
     try {
       if (typeof getLocalRegisteredUsers === 'function') {
         const regUsers = getLocalRegisteredUsers();
-        let matchCount = 0;
-        let matchValid = 0;
         for (const k in regUsers) {
           const u = regUsers[k];
           if (u && u.referredBy) {
             const ref = String(u.referredBy).trim();
-            if (ref === code || (loggedUser && (ref === loggedUser.email || ref === loggedUser.uid || ref === loggedUser.referCode))) {
-              matchCount++;
-              const dep = Number(u.totalDeposit || u.totalDeposits || 0);
-              const bets = Number(u.totalBets || u.turnover || 0);
-              if (u.isValid || (dep >= 500 && bets >= 5000)) {
-                matchValid++;
+            const matches = (ref === code) || (loggedUser && (
+              ref === String(loggedUser.referCode).trim() ||
+              ref === String(loggedUser.email || '').toLowerCase().trim() ||
+              ref === String(loggedUser.uid || '').trim()
+            ));
+            if (matches) {
+              const uKey = (u.uid || u.email || k).toLowerCase().trim();
+              const dep = Math.max(
+                Number(u.totalDeposit || 0),
+                Number(u.totalDeposited || 0),
+                Number(u.totalDeposits || 0),
+                Number(u.depositAmount || 0)
+              );
+              const bets = Math.max(
+                Number(u.totalBets || 0),
+                Number(u.turnover || 0),
+                Number(u.bets || 0)
+              );
+              const isValid = (u.isValid === true) || (dep >= 500 && bets >= 5000);
+              if (!referredUsersMap.has(uKey) || isValid) {
+                referredUsersMap.set(uKey, { uid: u.uid || uKey, email: u.email, totalDeposit: dep, totalBets: bets, isValid });
               }
             }
           }
         }
-        localTotalCount = Math.max(localTotalCount, matchCount);
-        localValidCount = Math.max(localValidCount, matchValid);
       }
     } catch(e) {}
 
+    function computeStatsFromMap() {
+      let totalCount = referredUsersMap.size;
+      let validCount = 0;
+      referredUsersMap.forEach(u => {
+        if (u.isValid) validCount++;
+      });
+      return { totalCount, validCount };
+    }
+
     function applyStatsToUI(totalCount, validCount) {
+      localStorage.setItem('pk96_cached_referral_total', totalCount.toString());
+      localStorage.setItem('pk96_cached_referral_valid', validCount.toString());
+
       // Calculate claimed commission from chest bonuses
       const claimedBonus = Number(localStorage.getItem('pk96_claimed_chest_bonus_' + userKey) || 0);
       const claimedChests = (typeof getUserClaimedChests === 'function') ? getUserClaimedChests() : [];
@@ -9976,55 +10250,101 @@
       if (unclaimedCommEl) unclaimedCommEl.textContent = unclaimedEstimate.toFixed(2);
       if (totalCommEl) totalCommEl.textContent = totalCommission.toFixed(2);
       if (yestCommEl) yestCommEl.textContent = yesterdayCommission.toFixed(2);
+
+      // Trigger reward list re-render
+      if (typeof generateInviteRewards === 'function') {
+        generateInviteRewards();
+      }
     }
 
-    applyStatsToUI(localTotalCount, localValidCount);
+    const initialStats = computeStatsFromMap();
+    applyStatsToUI(initialStats.totalCount, initialStats.validCount);
 
-    // Fetch live Firestore referral stats if available
-    if (window.db && window.doc && window.getDoc) {
-      const promises = [];
+    // Fetch live Firestore referral documents and sync validity
+    if (window.db && window.collection && window.query && window.where && window.getDocs) {
+      const queryList = [];
 
-      promises.push(
-        window.getDoc(window.doc(window.db, "referral_stats", code))
-          .then(snap => (snap.exists() && typeof snap.data().totalReferrals === 'number') ? snap.data().totalReferrals : 0)
-          .catch(() => 0)
+      // Query referrals collection
+      queryList.push(
+        window.getDocs(window.query(window.collection(window.db, "referrals"), window.where("referCode", "==", code)))
+          .then(snap => snap.docs.map(d => ({ ...d.data(), id: d.id })))
+          .catch(() => [])
       );
 
-      if (window.collection && window.query && window.where && window.getDocs) {
-        const qCode = window.query(window.collection(window.db, "referrals"), window.where("referCode", "==", code));
-        promises.push(
-          window.getDocs(qCode).then(qSnap => qSnap.size).catch(() => 0)
+      if (loggedUser && loggedUser.referCode && loggedUser.referCode !== code) {
+        queryList.push(
+          window.getDocs(window.query(window.collection(window.db, "referrals"), window.where("referCode", "==", String(loggedUser.referCode).trim())))
+            .then(snap => snap.docs.map(d => ({ ...d.data(), id: d.id })))
+            .catch(() => [])
         );
-
-        if (loggedUser && loggedUser.email) {
-          const qEmail = window.query(window.collection(window.db, "referrals"), window.where("referCode", "==", loggedUser.email.toLowerCase().trim()));
-          promises.push(
-            window.getDocs(qEmail).then(qSnap => qSnap.size).catch(() => 0)
-          );
-        }
-
-        const qUsersByRef = window.query(window.collection(window.db, "users"), window.where("referredBy", "==", code));
-        promises.push(
-          window.getDocs(qUsersByRef).then(qSnap => qSnap.size).catch(() => 0)
-        );
-
-        if (loggedUser && loggedUser.email) {
-          const qUsersByEmail = window.query(window.collection(window.db, "users"), window.where("referredBy", "==", loggedUser.email.toLowerCase().trim()));
-          promises.push(
-            window.getDocs(qUsersByEmail).then(qSnap => qSnap.size).catch(() => 0)
-          );
-        }
       }
 
-      Promise.all(promises).then(results => {
-        let maxCount = localTotalCount;
-        results.forEach(val => {
-          if (typeof val === 'number' && val > maxCount) {
-            maxCount = val;
+      // Query users collection
+      queryList.push(
+        window.getDocs(window.query(window.collection(window.db, "users"), window.where("referredBy", "==", code)))
+          .then(snap => snap.docs.map(d => ({ ...d.data(), id: d.id })))
+          .catch(() => [])
+      );
+
+      if (loggedUser && loggedUser.referCode && loggedUser.referCode !== code) {
+        queryList.push(
+          window.getDocs(window.query(window.collection(window.db, "users"), window.where("referredBy", "==", String(loggedUser.referCode).trim())))
+            .then(snap => snap.docs.map(d => ({ ...d.data(), id: d.id })))
+            .catch(() => [])
+        );
+      }
+
+      // Query referral_stats subcollection
+      queryList.push(
+        window.getDocs(window.collection(window.db, "referral_stats", code, "referred_users"))
+          .then(snap => snap.docs.map(d => ({ ...d.data(), id: d.id })))
+          .catch(() => [])
+      );
+
+      Promise.all(queryList).then(resultArrays => {
+        resultArrays.flat().forEach(docData => {
+          if (!docData) return;
+          // Skip lookup alias docs
+          if (docData.isLookupDoc || (docData.id && (docData.id.startsWith('email_') || docData.id.includes('@')))) {
+            return;
+          }
+          const uKey = (docData.uid || docData.referredUid || docData.email || docData.referredEmail || docData.id || '').toLowerCase().trim();
+          if (!uKey) return;
+
+          const dep = Math.max(
+            Number(docData.totalDeposit || 0),
+            Number(docData.totalDeposited || 0),
+            Number(docData.totalDeposits || 0),
+            Number(docData.depositAmount || 0)
+          );
+          const bets = Math.max(
+            Number(docData.totalBets || 0),
+            Number(docData.turnover || 0),
+            Number(docData.bets || 0)
+          );
+          const isValid = (docData.isValid === true) || (dep >= 500 && bets >= 5000);
+
+          if (!referredUsersMap.has(uKey) || isValid) {
+            referredUsersMap.set(uKey, {
+              uid: docData.uid || docData.referredUid || uKey,
+              email: docData.email || docData.referredEmail || '',
+              totalDeposit: dep,
+              totalBets: bets,
+              isValid: isValid
+            });
           }
         });
-        applyStatsToUI(maxCount, Math.max(localValidCount, (typeof getReferralValidCount === 'function' ? getReferralValidCount() : 0)));
-      }).catch(e => console.warn("Live referral stats fetch notice:", e));
+
+        // Cache Firestore map
+        const fsCacheObj = {};
+        referredUsersMap.forEach((val, key) => {
+          fsCacheObj[key] = val;
+        });
+        localStorage.setItem('pk96_firestore_referrals_cache', JSON.stringify(fsCacheObj));
+
+        const updatedStats = computeStatsFromMap();
+        applyStatsToUI(updatedStats.totalCount, updatedStats.validCount);
+      }).catch(e => console.warn("Live referral stats sync notice:", e));
     }
   }
   window.updateReferralUI = updateReferralUI;
@@ -10251,6 +10571,48 @@
           handleSharePlatformClick(platform);
         }
       });
+    });
+
+    // Home Screen Contact Us WhatsApp icon -> opens official WhatsApp channel
+    const homeWhatsAppItem = document.getElementById('homeWhatsAppItem');
+    if (homeWhatsAppItem) {
+      homeWhatsAppItem.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openExternalUrl(PK96_OFFICIAL_WHATSAPP_URL, 'WhatsApp Channel');
+      });
+    }
+
+    // Home Screen Contact Us Telegram icon -> opens official Telegram channel
+    const homeTelegramItem = document.getElementById('homeTelegramItem');
+    if (homeTelegramItem) {
+      homeTelegramItem.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openExternalUrl(PK96_OFFICIAL_TELEGRAM_URL, 'Telegram Channel');
+      });
+    }
+
+    // Support Page WhatsApp channel
+    const supportWhatsAppItem = document.getElementById('supportWhatsAppItem');
+    const supportWhatsAppBtn = document.getElementById('supportWhatsAppBtn');
+    [supportWhatsAppItem, supportWhatsAppBtn].forEach(el => {
+      if (el) {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openExternalUrl(PK96_OFFICIAL_WHATSAPP_URL, 'WhatsApp Channel');
+        });
+      }
+    });
+
+    // Support Page Telegram channel
+    const supportTelegramItem = document.getElementById('supportTelegramItem');
+    const supportTelegramBtn = document.getElementById('supportTelegramBtn');
+    [supportTelegramItem, supportTelegramBtn].forEach(el => {
+      if (el) {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openExternalUrl(PK96_OFFICIAL_TELEGRAM_URL, 'Telegram Channel');
+        });
+      }
     });
   });
 
@@ -10768,9 +11130,14 @@
 
                 const newBal = currentBal + totalAdded;
 
+                // Record deposit in PK96 referral/balance tracker
+                if (window.PK96 && typeof window.PK96.recordDeposit === 'function') {
+                    window.PK96.recordDeposit(amt);
+                }
+
                 // Update global balance system
                 if (window.PK96 && window.PK96.setBalance) {
-                    window.PK96.setBalance(newBal);
+                    window.PK96.setBalance(newBal, false);
                 } else {
                     localStorage.setItem("pk96_balance", newBal.toString());
                     if (window.updateDOMBalances) window.updateDOMBalances(newBal);
@@ -10782,7 +11149,9 @@
                     if (loggedStr) {
                         const u = JSON.parse(loggedStr);
                         u.balance = newBal;
-                        u.totalDeposited = (u.totalDeposited || 0) + amt;
+                        const prevDep = Math.max(Number(u.totalDeposit || 0), Number(u.totalDeposited || 0));
+                        u.totalDeposit = prevDep + amt;
+                        u.totalDeposited = u.totalDeposit;
                         u.depositCount = (u.depositCount || 0) + 1;
                         localStorage.setItem("pk96_logged_user", JSON.stringify(u));
                         if (u.email && window.saveLocalRegisteredUser) {
@@ -10791,17 +11160,10 @@
                         if (u.uid && window.db && window.doc && window.setDoc) {
                             window.setDoc(window.doc(window.db, "users", u.uid), { 
                                 balance: newBal,
+                                totalDeposit: u.totalDeposit,
                                 totalDeposited: u.totalDeposited,
                                 depositCount: u.depositCount
                             }, { merge: true }).catch(() => {});
-                            if (u.email) {
-                                const emailKey = u.email.toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, '_');
-                                window.setDoc(window.doc(window.db, "users", "email_" + emailKey), { 
-                                    balance: newBal,
-                                    totalDeposited: u.totalDeposited,
-                                    depositCount: u.depositCount
-                                }, { merge: true }).catch(() => {});
-                            }
                         }
                     }
                 } catch(err) {}
@@ -11042,24 +11404,6 @@
                     if (input) input.value = "";
                 } else {
                     showLobbyToast("Please enter a valid invite code.");
-                }
-            });
-        }
-
-        const copyReferralLinkBtn = document.getElementById("copyReferralLinkBtn");
-        if (copyReferralLinkBtn) {
-            copyReferralLinkBtn.addEventListener("click", function(e) {
-                e.stopPropagation();
-                const link = window.getActiveReferralLink ? window.getActiveReferralLink() : (document.getElementById('referralLinkText') ? document.getElementById('referralLinkText').textContent : '');
-                if (link && link !== 'Loading') {
-                    if (window.copyTextToClipboard) {
-                        window.copyTextToClipboard(link, "🚀 Referral link copied to clipboard!", false);
-                    } else {
-                        try { navigator.clipboard.writeText(link); } catch(err) {}
-                        if (window.showLobbyToast) window.showLobbyToast("🚀 Referral link copied to clipboard!");
-                    }
-                } else {
-                    if (window.showLobbyToast) window.showLobbyToast("Please log in to get your referral link.", true);
                 }
             });
         }

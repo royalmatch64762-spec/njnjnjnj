@@ -14,7 +14,7 @@ const gameSyncPairs = [
   { primary: 'index.html', secondary: 'lobby.html' }
 ];
 
-console.log('--- Synchronizing Game Files for Vercel & GitHub Deployment ---');
+console.log('--- Synchronizing Game Files & Aliases ---');
 
 let syncCount = 0;
 gameSyncPairs.forEach(({ primary, secondary }) => {

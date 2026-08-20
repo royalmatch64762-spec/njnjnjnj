@@ -97,14 +97,31 @@ Error generating stack: `+i.message+`
   init: () => {
     let realUser = null;
     try {
-      const uStr = localStorage.getItem("pk96_logged_user");
-      if (uStr) {
-        const u = JSON.parse(uStr);
-        if (u && (u.email || u.uid)) realUser = u;
+      if (typeof window !== 'undefined' && window.PK96 && typeof window.PK96.getUser === 'function') {
+        const pkUser = window.PK96.getUser();
+        if (pkUser && (pkUser.email || pkUser.uid) && !pkUser.isGuest && pkUser.email !== 'guest@pk96.com') {
+          realUser = pkUser;
+        }
       }
     } catch(e) {}
+    if (!realUser) {
+      try {
+        const uStr = localStorage.getItem("pk96_logged_user");
+        if (uStr) {
+          const u = JSON.parse(uStr);
+          if (u && (u.email || u.uid) && !String(u.uid || '').startsWith('guest_') && u.email !== 'guest@pk96.com' && !u.isGuest) {
+            realUser = u;
+          }
+        }
+      } catch(e) {}
+    }
     if (!realUser && typeof window !== 'undefined' && window.parent && window.parent.PK96 && typeof window.parent.PK96.getUser === 'function') {
-      try { realUser = window.parent.PK96.getUser(); } catch(e) {}
+      try {
+        const pu = window.parent.PK96.getUser();
+        if (pu && (pu.email || pu.uid) && !String(pu.uid || '').startsWith('guest_') && pu.email !== 'guest@pk96.com' && !pu.isGuest) {
+          realUser = pu;
+        }
+      } catch(e) {}
     }
 
     let currentBalance = 0;
@@ -119,9 +136,9 @@ Error generating stack: `+i.message+`
       }
     } catch(e) {}
 
-    const uid = realUser ? (realUser.uid || ("usr_" + (realUser.email || "player").replace(/[^a-zA-Z0-9]/g, "_"))) : (localStorage.getItem("aviator_token") || "usr_pilot");
-    const uname = realUser ? (realUser.username || realUser.displayName || (realUser.email ? realUser.email.split("@")[0] : "Player")) : "Player";
-    const uemail = realUser ? (realUser.email || "player@pk96.com") : "player@pk96.com";
+    const uid = realUser ? (realUser.uid || ("usr_" + (realUser.email || "player").replace(/[^a-zA-Z0-9]/g, "_"))) : (localStorage.getItem("aviator_token") || "guest");
+    const uname = realUser ? (realUser.username || realUser.displayName || (realUser.email ? realUser.email.split("@")[0] : "Player")) : "Guest Player";
+    const uemail = realUser ? (realUser.email || "guest@pk96.com") : "guest@pk96.com";
 
     const userObj = {
       id: uid,
